@@ -47,7 +47,7 @@ const Search = ( { yelp }) => {
 // function generateRandomPrice(min = 1, max = 5) {
 //     return (Math.floor(Math.random() * (max - min)) + min).toString()
 // }
-console.log(restaurant)
+// console.log(restaurant)
   return (
     <div className="search-container">
 
@@ -55,7 +55,7 @@ console.log(restaurant)
 
             <select id="select_location" value={location} onChange={handleLocation} > 
                 <option value="italian">NYC</option>
-                <option value="chinese">LA</option>
+                <option value="chi nese">LA</option>
                 <option value="mexican">SF</option>
             </select>
 

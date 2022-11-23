@@ -1,25 +1,27 @@
 class UsersController < ApplicationController
-    # skip_before_action :authorize, only: :create
- 
+    skip_before_action :authorize, only: :create
 
-    # def show
-    #     user = User.find(session[:user_id])
-    #     render json: user, status: :ok
-    # end
+   #sign-up
+   def create
+        user = User.create!(user_params)
+        if user.valid?
+            session[:user_id] = user.id
+            render json: user, status: :created
+        else
+            render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+        end
+    end
 
-    # def create
-    #     user = User.create!(user_params)
-    #     if user.valid?
-    #         session[:user_id] = user.id
-    #         render json: user, status: :created
-    #     else
-    #         render json: { errors: user.errors.full_messages }, status: :unproccessable_entity
-    #     end
-    # end
+    #keep logged-in
+    def show
+        current_user = User.find(session[:user_id])
+        render json: current_user, status: :ok
+    end
 
-    # private
+    private
 
-    # def user_params
-    #     params.permit(:username, :password, :password_confirmation)
-    # end
+    def user_params
+        params.permit(:username, :password, :password_confirmation)
+    end
+
 end
