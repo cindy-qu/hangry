@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* .home h2 {
+  text-align: left;
+  padding-left: 300px;
+}
+
+.home h2 #spin:after {
+  content:"";
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% { content:"breakfast";}
+  10% { content:"lunch";}
+  20% { content:"dinner";}
+  30% { content:"amet";}
+  40% { content:"consectetur";}
+  50% { content: "adipisicing"; }
+  60% { content: "elit"; }
+  70% { content: "Hic"; }
+  80% { content: "atque"; }
+  90% { content: "fuga"; }
+} */
