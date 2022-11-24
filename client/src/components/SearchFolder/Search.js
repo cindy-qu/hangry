@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const Search = ( { yelp }) => {
@@ -8,6 +8,8 @@ const Search = ( { yelp }) => {
     const [category, setCategory] = useState("italian")
     const [location, setLocation] = useState("")
     const [restaurant, setRestaurant] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState("")
 
     // handle get values from search inputs
     const handlePrice = (e) => {
@@ -23,11 +25,11 @@ const Search = ( { yelp }) => {
     }
 
     // fetch API Request
-    const handleSearchSubmit = (e) => {
+    const handleSearchSubmit = async (e) => {
         e.preventDefault()
-
-        const searchApi = async () => {
-            const response = await yelp.get('/search', {
+        setIsLoading(true);
+        try {
+            const data = await yelp.get('/search', {
                 params: {
                     limit: 1,
                     location: 'NYC',
@@ -36,21 +38,46 @@ const Search = ( { yelp }) => {
                     price: price
                 },
             });
-            setRestaurant(response.data.businesses);
+            setRestaurant(data.data.businesses);
+  
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setIsLoading(false)
+        }
+        
+
+        // setIsLoading(true)
+
+        // const searchApi = async () => {
+        //     const response = await yelp.get('/search', {
+        //         params: {
+        //             limit: 1,
+        //             location: 'NYC',
+        //             term: 'restaurant',
+        //             categories: category,
+        //             price: price
+        //         },
+        //     });
             
-        };
+        //     setRestaurant(response.data.businesses)
+        //     setIsLoading(false)
+        //     // setRestaurant(response.data.businesses);
+            
+        // };
        
-        searchApi()
+        // searchApi()
+
     }
 
 
 // function generateRandomPrice(min = 1, max = 5) {
 //     return (Math.floor(Math.random() * (max - min)) + min).toString()
 // }
-// console.log(restaurant)
+
   return (
     <div className="search-container">
-
+{error && <h2>{error}</h2>}
         <form onSubmit={handleSearchSubmit}>
 
             <select id="select_location" value={location} onChange={handleLocation} > 
@@ -72,11 +99,12 @@ const Search = ( { yelp }) => {
                 <option value="4">$$$$</option>
                 {/* <option value={generateRandomPrice()}>Feeling lucky</option> */}
             </select>
-            {/* <Link to={`/restaurants/${restaurant[0]?.id}`}> */}
+            <Link to={`/restaurants/${restaurant[0]?.id}`}>
             <button className='submit-btn' type="submit">Search</button>
-            {/* </Link> */}
+            </Link>
 
         </form>
+
     </div>
   )
 }

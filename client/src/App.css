@@ -59,3 +59,11 @@
   80% { content: "atque"; }
   90% { content: "fuga"; }
 } */
+
+
+.restaurant-detail img{
+  border-radius: 4px;
+  margin: 15px 0px;
+  width: 30vw;
+  max-width: 400px;
+}
