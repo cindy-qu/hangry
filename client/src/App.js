@@ -17,7 +17,7 @@ function App() {
 
   //setting login state
   const [user, setUser] = useState(null)
-
+  const [updateRestaurant, setUpdateRestaurant]=useState([])
 
 // automatically login if user_id is in session, load home page
   useEffect(() => {
@@ -30,7 +30,7 @@ function App() {
     });
   }, [])
 
-  console.log(user)
+  // console.log(user)
   if (!user) return <LoginContainer setUser={setUser} />
 
   return (
@@ -39,11 +39,11 @@ function App() {
       <Switch>
 
         <Route exact path="/">
-          <Home yelp={yelp}/>
+          <Home yelp={yelp} updateRestaurant={updateRestaurant} setUpdateRestaurant={setUpdateRestaurant}/>
         </Route>
 
         <Route exact path="/restaurants/:id">
-          <RestaurantDetail yelp={yelp} />
+          <RestaurantDetail yelp={yelp} updateRestaurant={updateRestaurant} setUpdateRestaurant={setUpdateRestaurant}/>
         </Route>
 
         <Route exact path="/myBookmarks">

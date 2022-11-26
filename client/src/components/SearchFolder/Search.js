@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
-const Search = ( { yelp }) => {
+const Search = ( { yelp, updateRestaurant, setUpdateRestaurant }) => {
     // search state
     const [price, setPrice] = useState("1")
     const [category, setCategory] = useState("italian")
-    const [location, setLocation] = useState("")
-    const [restaurant, setRestaurant] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState("")
+    const [location, setLocation] = useState("nyc")
+    const [restaurant, setRestaurant] = useState(false)
+    // const [isLoading, setIsLoading] = useState(false)
+    // const [error, setError] = useState("")
 
     // handle get values from search inputs
     const handlePrice = (e) => {
@@ -24,50 +24,29 @@ const Search = ( { yelp }) => {
         setLocation(e.target.value)
     }
 
-    // fetch API Request
-    const handleSearchSubmit = async (e) => {
-        e.preventDefault()
-        setIsLoading(true);
-        try {
+    async function fetchRestaurant () {
             const data = await yelp.get('/search', {
                 params: {
                     limit: 1,
-                    location: 'NYC',
+                    location: location,
                     term: 'restaurant',
                     categories: category,
                     price: price
                 },
             });
-            setRestaurant(data.data.businesses);
-  
-        } catch (error) {
-            setError(error.message);
-        } finally {
-            setIsLoading(false)
-        }
-        
-
-        // setIsLoading(true)
-
-        // const searchApi = async () => {
-        //     const response = await yelp.get('/search', {
-        //         params: {
-        //             limit: 1,
-        //             location: 'NYC',
-        //             term: 'restaurant',
-        //             categories: category,
-        //             price: price
-        //         },
-        //     });
-            
-        //     setRestaurant(response.data.businesses)
-        //     setIsLoading(false)
-        //     // setRestaurant(response.data.businesses);
-            
-        // };
        
-        // searchApi()
+            setUpdateRestaurant(data.data.businesses);   
+    }
 
+    useEffect(()=> {
+        fetchRestaurant()
+    },[restaurant])
+
+    // fetch API Request
+    const handleSearchSubmit = (e) => {
+        e.preventDefault()
+        fetchRestaurant()
+        console.log(updateRestaurant)
     }
 
 
@@ -77,13 +56,14 @@ const Search = ( { yelp }) => {
 
   return (
     <div className="search-container">
-{error && <h2>{error}</h2>}
+        {/* {error && <h2>{error}</h2>} */}
+{updateRestaurant[0]?.id}
         <form onSubmit={handleSearchSubmit}>
 
             <select id="select_location" value={location} onChange={handleLocation} > 
-                <option value="italian">NYC</option>
-                <option value="chi nese">LA</option>
-                <option value="mexican">SF</option>
+                <option value="nyc">NYC</option>
+                <option value="la">LA</option>
+                <option value="sf">SF</option>
             </select>
 
             <select id="select_category" value={category} onChange={handleCategory} > 
@@ -99,7 +79,8 @@ const Search = ( { yelp }) => {
                 <option value="4">$$$$</option>
                 {/* <option value={generateRandomPrice()}>Feeling lucky</option> */}
             </select>
-            <Link to={`/restaurants/${restaurant[0]?.id}`}>
+            
+            <Link to={ `/restaurants/${updateRestaurant[0]?.id}`}>
             <button className='submit-btn' type="submit">Search</button>
             </Link>
 
