@@ -89,6 +89,7 @@ const Search = ( { yelp, updateRestaurant, setUpdateRestaurant }) => {
                 <option value="italian">Italian</option>
                 <option value="chinese">Chinese</option>
                 <option value="mexican">Mexican</option>
+                <option value="brunch">Brunch</option>
             </select>
 
             <select id="select_price"  value={price} onChange={handlePrice}> 

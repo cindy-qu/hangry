@@ -7,6 +7,7 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import RestaurantDetail from './components/SearchFolder/RestaurantDetail'
 import MyBookmarks from './components/MyBookmarksFolder/MyBookmarks'
+import EditBookmarkCard from './components/MyBookmarksFolder/EditBookmarkCard'
 import About from './components/About'
 import yelp from './components/api/Yelp'
 
@@ -18,7 +19,8 @@ function App() {
   //setting login state
   const [user, setUser] = useState(null)
   const [updateRestaurant, setUpdateRestaurant]=useState([])
-
+  const [updateAfterDelete, setUpdateAfterDelete] = useState(false)
+  const [updateBookmarkCard, setUpdateBookmarkCard] = useState([])
 // automatically login if user_id is in session, load home page
   useEffect(() => {
     fetch("/me").then((res) => {
@@ -28,9 +30,22 @@ function App() {
         });
       }
     });
-  }, [])
+  }, [updateBookmarkCard, updateAfterDelete])
 
-  // console.log(user)
+  // useEffect(() => {
+  //   fetch("bookmarks").then((res) => {
+  //     if (res.ok) {
+  //       res.json().then((userData) => {
+  //         setMyBookmarks(userData)
+  //       });
+  //     }
+  //   });
+  // }, [])
+
+
+
+
+  // console.log(myBookmarks)
   if (!user) return <LoginContainer setUser={setUser} />
 
   return (
@@ -47,7 +62,14 @@ function App() {
         </Route>
 
         <Route exact path="/myBookmarks">
-          <MyBookmarks/>
+          <MyBookmarks user={user} setUpdateAfterDelete={setUpdateAfterDelete}/>
+        </Route>
+
+        <Route exact path="/myBookmarks/:id">
+          <EditBookmarkCard
+            user={user}
+            setUpdateBookmarkCard={setUpdateBookmarkCard}
+          />
         </Route>
 
         <Route exact path="/about">

@@ -14,6 +14,18 @@ class BookmarksController < ApplicationController
         render json: bookmark, status: :created
     end
 
+    def update
+        bookmark = Bookmark.find(params[:id])
+        bookmark.update!(bookmark_params)
+        render json: bookmark
+    end
+
+    def destroy
+        bookmark = Bookmark.find(params[:id])
+        bookmark.destroy
+        head :no_content
+    end
+
     private
 
     def bookmark_params()
