@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 
 const Search = ( { yelp, updateRestaurant, setUpdateRestaurant }) => {
@@ -7,11 +7,11 @@ const Search = ( { yelp, updateRestaurant, setUpdateRestaurant }) => {
     const [price, setPrice] = useState("1")
     const [category, setCategory] = useState("italian")
     const [location, setLocation] = useState("nyc")
-    const [restaurant, setRestaurant] = useState(false)
-    // const [isLoading, setIsLoading] = useState(false)
-    // const [error, setError] = useState("")
+    const [restaurant, setRestaurant] = useState([])
 
-    // handle get values from search inputs
+    const history = useHistory();
+
+    // handle get values from dropdown inputs
     const handlePrice = (e) => {
         setPrice(e.target.value)
     }
@@ -24,41 +24,60 @@ const Search = ( { yelp, updateRestaurant, setUpdateRestaurant }) => {
         setLocation(e.target.value)
     }
 
-    async function fetchRestaurant () {
-            const data = await yelp.get('/search', {
-                params: {
-                    limit: 1,
-                    location: location,
-                    term: 'restaurant',
-                    categories: category,
-                    price: price
-                },
-            });
-       
-            setUpdateRestaurant(data.data.businesses);   
-    }
+    // const handleClick = (e) => {
+    //     e.preventDefault()
+    //     yelp.get(`/search`, {
+    //         params: {
+    //             limit: 1,
+    //             location: location,
+    //             term: 'restaurant',
+    //             categories: category,
+    //             price: price
+    //         }
+    //     })
+    //     .then((restaurantData) => {
+    //         setUpdateRestaurant(restaurantData.data.businesses)
+    //     })
 
-    useEffect(()=> {
+    //     console.log(updateRestaurant)
+    // //    console.log(location, category, price)
+    //     // history.push(`/restaurants/${updateRestaurant[0]?.id}`)
+    // }
+
+    async function fetchRestaurant(){
+        const data = await yelp.get('/search', {
+            params: {
+                limit: 1,
+                location: location,
+                term: 'restaurant',
+                categories: category,
+                price: price                
+            }
+        })
+        // setUpdateRestaurant(data.data.businesses)
+        // history.push(`/restaurants/${updateRestaurant[0]?.id}`)
+        return data.data.businesses
+    } 
+
+    useEffect(() => {
         fetchRestaurant()
-    },[restaurant])
+        
+    },[])
 
-    // fetch API Request
-    const handleSearchSubmit = (e) => {
+    const handleClick = async (e) => {
         e.preventDefault()
-        fetchRestaurant()
-        console.log(updateRestaurant)
+        const restaurantArray = await fetchRestaurant()
+
+        // console.log(updateRestaurant)
+        // console.log(restaurantArray)
+        history.push(`/restaurants/${restaurantArray[0]?.id}`)
     }
-
-
-// function generateRandomPrice(min = 1, max = 5) {
-//     return (Math.floor(Math.random() * (max - min)) + min).toString()
-// }
+  
 
   return (
+
     <div className="search-container">
-        {/* {error && <h2>{error}</h2>} */}
-{updateRestaurant[0]?.id}
-        <form onSubmit={handleSearchSubmit}>
+        <form >
 
             <select id="select_location" value={location} onChange={handleLocation} > 
                 <option value="nyc">NYC</option>
@@ -77,12 +96,12 @@ const Search = ( { yelp, updateRestaurant, setUpdateRestaurant }) => {
                 <option value="2">$$</option>
                 <option value="3">$$$</option>
                 <option value="4">$$$$</option>
-                {/* <option value={generateRandomPrice()}>Feeling lucky</option> */}
+
             </select>
             
-            <Link to={ `/restaurants/${updateRestaurant[0]?.id}`}>
-            <button className='submit-btn' type="submit">Search</button>
-            </Link>
+
+            <button className='submit-btn' onClick={handleClick}>Search</button>
+
 
         </form>
 
