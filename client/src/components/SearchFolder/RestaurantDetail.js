@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { Link, useParams, useHistory } from 'react-router-dom'
 
-const RestaurantDetail = ( { yelp, user } ) => {
+const RestaurantDetail = ( { yelp, user, setUpdateAfterBookmark } ) => {
 
     const [restaurantDetail, setRestaurantDetail] = useState([]);
     const [bookmarkDetail, setBookmarkDetail] = useState([]);
     const [errors, setErrors] = useState([]);
-    const [createPersonalNote, setCreatePersonalNote] = useState("Tips, tricks, things to remember")
+    const [updated, setUpdated] = useState(false);
 
     const params = useParams();
     const history = useHistory();
@@ -27,7 +27,7 @@ const RestaurantDetail = ( { yelp, user } ) => {
 
 
  const locationAddress = restaurantDetail?.location?.display_address
-// console.log(locationAddress)
+
 
 const locationMap = locationAddress?.map((address) => {
   return (<p key={address}>{address}</p>)
@@ -36,22 +36,12 @@ const locationMap = locationAddress?.map((address) => {
 
 
 const handleBookmark = (e) => {
-  // const formData = {
-  //   personal_note: createPersonalNote,
-  //   user_id: user.id,
-  // }
+
   const restaurantData = {
     restaurant_name: restaurantDetail.name,
     user_id: user.id,
   }
 
-//   fetch(`/bookmarks`, {
-//     method: "POST",
-//     headers: {
-//         "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(formData)
-// })
 fetch(`/restaurants`, {
   method: "POST",
   headers: {
@@ -59,13 +49,12 @@ fetch(`/restaurants`, {
   },
   body: JSON.stringify(restaurantData)
 })
-  
-
 .then((res) => {
   if (res.ok) {
     res.json().then((userData) => {
       setBookmarkDetail(userData)
-      history.push("/myBookmarks")
+      setUpdated(updated => !updated)
+      // history.push("/myBookmarks")
     });
   } else {
     res.json().then((err) => setErrors(err.errors))
@@ -76,7 +65,7 @@ fetch(`/restaurants`, {
 const formErrorMsg = errors?.map((err) => (
   <p key={err}>{err}</p>
   ))
-// console.log(locationMap)
+  const editMsgClassName = updated ? '' : 'hidden';
   return (
     <div className= "restaurant-detail">
       <h2>{restaurantDetail?.name}</h2>
@@ -89,23 +78,20 @@ const formErrorMsg = errors?.map((err) => (
       </a>
       <br />
       <br />
-      <ul>Your Notes</ul>
-      <textarea
-      value={createPersonalNote}
-      onChange={(e)=>{ setCreatePersonalNote(e.target.value) }}
-       />
-
-      <br />
+      
       <br />
       <button onClick={handleBookmark}>Bookmark for Later</button>
       <ul>{formErrorMsg}</ul>
+      <div id="edit-complete-msg" className={editMsgClassName}>
+                <h3>Bookmarked!</h3>
+                <Link to="/myBookmarks">
+                  <button className='submit-btn'>View My Bookmarks
+                  </button>
+                </Link>
+        </div>
     </div>
 
   )
 }
-// t.string "restaurant_name"
-// t.string "restaurant_image"
-// t.integer "yelp_rating"
-// t.string "yelp_url"
-// t.string "price_range"
+
 export default RestaurantDetail

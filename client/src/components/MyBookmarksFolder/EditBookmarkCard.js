@@ -4,16 +4,17 @@ import { Link, useParams} from 'react-router-dom'
 const EditBookmarkCard = ( {user, setUpdateBookmarkCard} ) => {
     const [updated, setUpdated] = useState(false);
     const [errors, setErrors] = useState([]);
-    //plant form state
+
     const [personalNote, setPersonalNote] = useState("")
     const paramsObj = useParams()
     const paramsId = parseInt(paramsObj.id)
+console.log(paramsId)
+    const bookmarkId = user.restaurants
+    let matchPersonalNote = bookmarkId.find(book => book.id === paramsId ? book.id : '')
 
-    let matchPersonalNote = user.bookmarks.find(book => book.id === paramsId ? book.id : '')
-
-    useEffect(() => {
-        setPersonalNote(matchPersonalNote.personal_note)
-    },[paramsId])
+    // useEffect(() => {
+    //     setPersonalNote(matchPersonalNote.personal_note)
+    // },[paramsId])
 
 function handleUpdate(e) {
     e.preventDefault()
