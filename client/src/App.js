@@ -43,7 +43,7 @@ function App() {
   // }, [])
 
 
-
+console.log(user)
 
   // console.log(myBookmarks)
   if (!user) return <LoginContainer setUser={setUser} />
@@ -58,7 +58,7 @@ function App() {
         </Route>
 
         <Route exact path="/restaurants/:id">
-          <RestaurantDetail yelp={yelp} updateRestaurant={updateRestaurant} setUpdateRestaurant={setUpdateRestaurant}/>
+          <RestaurantDetail user={user} yelp={yelp} updateRestaurant={updateRestaurant} setUpdateRestaurant={setUpdateRestaurant}/>
         </Route>
 
         <Route exact path="/myBookmarks">

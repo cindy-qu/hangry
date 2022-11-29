@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 
-const RestaurantDetail = ( { yelp } ) => {
+const RestaurantDetail = ( { yelp, user } ) => {
+
     const [restaurantDetail, setRestaurantDetail] = useState([]);
     const [bookmarkDetail, setBookmarkDetail] = useState([]);
     const [errors, setErrors] = useState([]);
+    const [createPersonalNote, setCreatePersonalNote] = useState("Tips, tricks, things to remember")
 
     const params = useParams();
     const history = useHistory();
@@ -32,26 +34,37 @@ const locationMap = locationAddress?.map((address) => {
 })
 
 
+
 const handleBookmark = (e) => {
-  const formData = {
-    personal_note: "hi",
-    restaurant_id: 1,
-    user_id: 1
+  // const formData = {
+  //   personal_note: createPersonalNote,
+  //   user_id: user.id,
+  //   restaurant_id: 1
+  // }
+  const restaurantData = {
+    restaurant_name: restaurantDetail.name,
   }
 
-  fetch(`/bookmarks`, {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData)
+//   fetch(`/bookmarks`, {
+//     method: "POST",
+//     headers: {
+//         "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(formData)
+// })
+fetch(`/restaurants`, {
+  method: "POST",
+  headers: {
+      "Content-Type": "application/json",
+  },
+  body: JSON.stringify(restaurantData)
 })
 
 .then((res) => {
   if (res.ok) {
     res.json().then((userData) => {
       setBookmarkDetail(userData)
-      history.push("/myBookmarks")
+      // history.push("/myBookmarks")
     });
   } else {
     res.json().then((err) => setErrors(err.errors))
@@ -59,6 +72,9 @@ const handleBookmark = (e) => {
 })
 }
 
+const formErrorMsg = errors?.map((err) => (
+  <p key={err}>{err}</p>
+  ))
 // console.log(locationMap)
   return (
     <div className= "restaurant-detail">
@@ -70,7 +86,18 @@ const handleBookmark = (e) => {
       <a href={restaurantDetail?.url} target="_blank" rel="noreferrer">
         <button>Yelp Page</button>
       </a>
+      <br />
+      <br />
+      <ul>Your Notes</ul>
+      <textarea
+      value={createPersonalNote}
+      onChange={(e)=>{ setCreatePersonalNote(e.target.value) }}
+       />
+
+      <br />
+      <br />
       <button onClick={handleBookmark}>Bookmark for Later</button>
+      <ul>{formErrorMsg}</ul>
     </div>
 
   )
