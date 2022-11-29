@@ -7,7 +7,8 @@ const MyBookmarks = ( {user, setUpdateAfterDelete} ) => {
     <div>
       <h1>My Bookmarks</h1>
       <BookmarkList 
-      bookmarks={user.bookmarks}
+      user_id={user.id}
+      bookmarks={user.restaurants}
       setUpdateAfterDelete={setUpdateAfterDelete}
       />
     </div>

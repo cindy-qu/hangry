@@ -14,9 +14,21 @@ class RestaurantsController < ApplicationController
         render json: restaurant, status: :created
     end
 
+    def update
+        restaurant = Restaurant.find(params[:id])
+        restaurant.update!(restaurant_params)
+        render json: restaurant
+    end
+
+    def destroy
+        restaurant = Restaurant.find(params[:id])
+        restaurant.destroy
+        head :no_content
+    end
+
     private
 
     def restaurant_params()
-        params.permit(:restaurant_name, :bookmark_id)
+        params.permit(:restaurant_name, :bookmark_id, :user_id)
     end
 end

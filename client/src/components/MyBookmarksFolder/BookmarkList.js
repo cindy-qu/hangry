@@ -1,18 +1,21 @@
 import React from 'react'
 import BookmarkCard from './BookmarkCard.js'
 
-const BookmarkList = ( {bookmarks, setUpdateAfterDelete} ) => {
+const BookmarkList = ( {bookmarks, setUpdateAfterDelete, user_id } ) => {
+console.log(bookmarks)
 
    const renderBookmarkCard = bookmarks.map((bookmark)=>{
     return (
         <BookmarkCard 
         key={bookmark.id}
         bookmark_id={bookmark.id}
-        personal_note={bookmark.personal_note}
-        restaurant_name={bookmark.restaurant.restaurant_name}
+        restaurant_name={bookmark.restaurant_name}
+        personal_note={bookmark.bookmarks[0]}
         setUpdateAfterDelete={setUpdateAfterDelete}
+        user_id={user_id}
         />
     )
+   
    })
   return (
     <div>

@@ -39,10 +39,10 @@ const handleBookmark = (e) => {
   // const formData = {
   //   personal_note: createPersonalNote,
   //   user_id: user.id,
-  //   restaurant_id: 1
   // }
   const restaurantData = {
     restaurant_name: restaurantDetail.name,
+    user_id: user.id,
   }
 
 //   fetch(`/bookmarks`, {
@@ -59,12 +59,13 @@ fetch(`/restaurants`, {
   },
   body: JSON.stringify(restaurantData)
 })
+  
 
 .then((res) => {
   if (res.ok) {
     res.json().then((userData) => {
       setBookmarkDetail(userData)
-      // history.push("/myBookmarks")
+      history.push("/myBookmarks")
     });
   } else {
     res.json().then((err) => setErrors(err.errors))

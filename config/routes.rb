@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :bookmarks, only: [:index, :show, :create, :update, :destroy]
-  resources :restaurants, only: [:index, :show, :create]
+  resources :restaurants, only: [:index, :show, :create, :update, :destroy]
   resources :users, only: []
 
 
