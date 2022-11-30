@@ -16,7 +16,7 @@ const BookmarkCard = ({note_id, user_id, bookmark_id, restaurant_name, personal_
 
   return (
     <div>
-        <p>{restaurant_name}</p>
+        <h3>{restaurant_name}</h3>
        
         <p>{personal_note?.personal_note}</p>
 

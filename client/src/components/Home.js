@@ -2,6 +2,7 @@ import React from 'react'
 import Search from '../components/SearchFolder/Search'
 const Home = ( {yelp, updateRestaurant, setUpdateRestaurant, lat, long } ) => {
   return (
+    
     <div className='home'>
         <Search 
         yelp={yelp} 

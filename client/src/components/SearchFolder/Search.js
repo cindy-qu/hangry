@@ -120,8 +120,8 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
         const data = await yelp.get('/search', {
             params: {
                 limit: 5,
-                latitude: lat,
-                longitude: long,
+                latitude: 37.3308372,
+                longitude: -121.9083366,
                 // location: location,
                 term: 'restaurant',
                 categories: value,
@@ -139,7 +139,7 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
     },[])
 
     const handleClick = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const restaurantArray = await fetchRestaurant()
 
         function generateRandomRestaurant(min = 1, max = 5) {
@@ -158,9 +158,42 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
 
 // console.log(location)
 
+// Adventure
+
+function generateRandomPrice(min = 1, max = 4) {
+  return (Math.floor(Math.random() * (max - min)) + min).toString()
+}
+async function fetchAdventureRestaurant(){
+  const data = await yelp.get('/search', {
+      params: {
+          limit: 10,
+          latitude: 37.3308372,
+          longitude: -121.9083366,
+          term: 'restaurant',
+          // categories: value,
+          price: generateRandomPrice()                
+      }
+  })
+
+  return data.data.businesses
+} 
+
+const handleAdventureClick = async (e) => {
+  e.preventDefault();
+  const restaurantArray = await fetchAdventureRestaurant()
+
+  function generateRandomRestaurant(min = 1, max = 10) {
+    return (Math.floor(Math.random() * (max - min)) + min).toString()
+}
+
+history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
+
+}
   return (
 
-    <div className="search-container">
+    <div className="search-container" >
+      <br></br>
+      <p>Get a restaurant based on price range and category!</p>
         <form >
 
             {/* <select id="select_location" value={location} onChange={handleLocation} > 
@@ -198,7 +231,9 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
 
 
         </form>
-
+        <br></br>
+        <p>Get a restaurant only based on your location!</p>
+        <button className='submit-btn' onClick={handleAdventureClick}>Feeling Adventurous</button>
     </div>
   )
 }

@@ -83,13 +83,13 @@
 /* -----Global----- */
 .App {
   font-family: var(--font-nunito);
-  text-align: center;
+  /* text-align: center;
   margin: 0 auto;
   text-align: center;
   display: flex;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: 100vh; */
   
 }
 
