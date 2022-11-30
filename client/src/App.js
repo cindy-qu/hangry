@@ -26,6 +26,12 @@ function App() {
   const [updateAfterBookmark, setUpdateAfterBookmark] = useState([])
   const [restaurantBookmarks, setRestaurantBookmarks]=useState([])
   const [errors, setErrors] = useState([])
+
+  // location
+  const [lat, setLat] = useState(null);
+  const [long, setLong] = useState(null);
+  const [locationError, setLocationError] = useState([])
+
 // automatically login if user_id is in session, load home page
   useEffect(() => {
     fetch("/me").then((res) => {
@@ -33,6 +39,7 @@ function App() {
         res.json().then((userData) => {
           setUser(userData)
           fetchRestaurantBookmarks();
+          getUserCoordinates()
         });
       }
     });
@@ -48,21 +55,25 @@ function App() {
       }
     })
   }
-  // useEffect(() => {
-  //   fetch("bookmarks").then((res) => {
-  //     if (res.ok) {
-  //       res.json().then((userData) => {
-  //         setMyBookmarks(userData)
-  //       });
-  //     }
-  //   });
-  // }, [])
+    // geolocation
+    const geolocationAPI = navigator.geolocation
 
+    const getUserCoordinates = () => {
+        if (!geolocationAPI) {
+            setLocationError('Geolocation is not available in your browser! Try typing a city')
+        } else {
+            geolocationAPI.getCurrentPosition((position) => {
+                const { coords } = position;
+                setLat(coords.latitude);
+                setLong(coords.longitude);
+            }, (error) => {
+                setLocationError('Sorry! Something went wrong getting your location!')
+            })
+        }
 
-// console.log(user)
-// console.log(updateAfterBookmark)
-// console.log(restaurantBookmarks)
-  // console.log(myBookmarks)
+    }
+    // console.log(lat, long)
+
   if (!user) return <LoginContainer setUser={setUser} />
 
   return (
@@ -71,7 +82,7 @@ function App() {
       <Switch>
 
         <Route exact path="/">
-          <Home yelp={yelp} updateRestaurant={updateRestaurant} setUpdateRestaurant={setUpdateRestaurant}/>
+          <Home yelp={yelp} lat={lat} long={long} updateRestaurant={updateRestaurant} setUpdateRestaurant={setUpdateRestaurant}/>
         </Route>
 
         <Route exact path="/restaurants/:id">

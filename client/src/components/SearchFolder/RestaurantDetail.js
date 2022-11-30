@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useParams, useHistory } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const RestaurantDetail = ( { yelp, user, setUpdateAfterBookmark } ) => {
 
@@ -9,7 +9,7 @@ const RestaurantDetail = ( { yelp, user, setUpdateAfterBookmark } ) => {
     const [updated, setUpdated] = useState(false);
 
     const params = useParams();
-    const history = useHistory();
+
 
       useEffect(() => {
         const searchApi = async () => {

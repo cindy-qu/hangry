@@ -7,7 +7,7 @@ const LoginContainer = ({ setUser }) => {
 
     const [showLogin, setShowLogin] = useState(true);
 
-// console.log(showLogin)
+ 
   return (
     <div className="login-container">
         <div className="landing-page">

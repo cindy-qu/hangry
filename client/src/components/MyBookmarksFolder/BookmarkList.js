@@ -2,7 +2,7 @@ import React from 'react'
 import BookmarkCard from './BookmarkCard.js'
 
 const BookmarkList = ( {restaurantBookmarks2, restaurantBookmarks, bookmarks, setUpdateAfterDelete, user_id } ) => {
-console.log(bookmarks)
+// console.log(bookmarks)
 
    const renderBookmarkCard = bookmarks?.map((bookmark)=>{
     return (

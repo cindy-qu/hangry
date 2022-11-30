@@ -3,7 +3,7 @@ import { Link, useParams} from 'react-router-dom'
 
 const AddBookmarkNote = ({ user, setUpdateBookmarkNote }) => {
     const [createPersonalNote, setCreatePersonalNote] = useState("Tips, tricks, things to remember") 
-    const [restaurantBookmarkDetail, setRestaurantBookmarkDetail] = useState([]);
+    // const [restaurantBookmarkDetail, setRestaurantBookmarkDetail] = useState([]);
     const [errors, setErrors] = useState([]);
     const [updated, setUpdated] = useState(false);
     const paramsObj = useParams()
@@ -38,6 +38,11 @@ const AddBookmarkNote = ({ user, setUpdateBookmarkNote }) => {
       }
 
       const editMsgClassName = updated ? '' : 'hidden';
+      const formErrorMsg = errors.map((err) => (
+        <p key={err}>{err}</p>
+        ))
+
+
   return (
     <div>
 
@@ -48,6 +53,7 @@ const AddBookmarkNote = ({ user, setUpdateBookmarkNote }) => {
        />
        <br></br>
     <button className= "create-btn" onClick={handleCreateNote} >Add Note</button>
+    <ul>{formErrorMsg}</ul>
     <div id="edit-complete-msg" className={editMsgClassName}>
                 <h3>Note Added!</h3>
                 <Link to="/myBookmarks">

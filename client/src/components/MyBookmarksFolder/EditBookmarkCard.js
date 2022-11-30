@@ -8,9 +8,9 @@ const EditBookmarkCard = ( {user, setUpdateBookmarkCard} ) => {
     const [personalNote, setPersonalNote] = useState("")
     const paramsObj = useParams()
     const paramsId = parseInt(paramsObj.id)
-console.log(paramsId)
-    const bookmarkId = user.restaurants
-    let matchPersonalNote = bookmarkId.find(book => book.id === paramsId ? book.id : '')
+
+    // const bookmarkId = user.restaurants
+    // let matchPersonalNote = bookmarkId.find(book => book.id === paramsId ? book.id : '')
 
     // useEffect(() => {
     //     setPersonalNote(matchPersonalNote.personal_note)
@@ -42,6 +42,9 @@ function handleUpdate(e) {
 }
 
 const editMsgClassName = updated ? '' : 'hidden';
+const formErrorMsg = errors.map((err) => (
+    <p key={err}>{err}</p>
+    ))
 
   return (
     <div>
@@ -52,6 +55,7 @@ const editMsgClassName = updated ? '' : 'hidden';
             onChange={(e)=>{ setPersonalNote(e.target.value)}} />
             <button type="submit">Update Note</button>
         </form>
+        <ul>{formErrorMsg}</ul>
         <div id="edit-complete-msg" className={editMsgClassName}>
                 <h3>Edit complete!</h3>
                 <Link to="/myBookmarks">
