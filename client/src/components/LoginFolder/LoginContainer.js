@@ -14,7 +14,7 @@ const LoginContainer = ({ setUser }) => {
             <h1>Welcome to Hangry</h1>
             <h2>Can't decide where to eat?Let Hangry pick your location<span id="spin"></span></h2>
             <Link to='/login'>
-                <button onClick={() => setShowLogin(true)}>Login!</button>
+                <button onClick={() => setShowLogin(true)} >Login!</button>
             </Link>
 
             <Link to='/signup'>

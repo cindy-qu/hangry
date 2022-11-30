@@ -119,7 +119,7 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
     async function fetchRestaurant(){
         const data = await yelp.get('/search', {
             params: {
-                limit: 1,
+                limit: 5,
                 latitude: lat,
                 longitude: long,
                 // location: location,
@@ -142,9 +142,14 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
         e.preventDefault()
         const restaurantArray = await fetchRestaurant()
 
+        function generateRandomRestaurant(min = 1, max = 5) {
+            return (Math.floor(Math.random() * (max - min)) + min).toString()
+        }
         // console.log(updateRestaurant)
         // console.log(restaurantArray)
-        history.push(`/restaurants/${restaurantArray[0]?.id}`)
+        // console.log(restaurantArray[generateRandomPrice()])
+        history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
+
     }
 //   const currentLocation = {lat, long}
 //   const nycLocation = {lat: 40.730610, long:-73.935242}
