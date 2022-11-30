@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-
+import { autoCompleteData } from "./data.js";
 
 const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => {
     // search state
     
     const [price, setPrice] = useState("1")
-    const [category, setCategory] = useState("italian")
+    // const [category, setCategory] = useState("italian")
     // const [location, setLocation] = useState('')
 
 
@@ -17,9 +17,80 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
         setPrice(e.target.value)
     }
 
-    const handleCategory = (e) => {
-        setCategory(e.target.value)
-    }
+    // const handleCategory = (e) => {
+    //     setCategory(e.target.value)
+    // }
+//auto
+   //autocomplete
+   const [suggestions, setSuggestions] = useState([]);
+   const [suggestionIndex, setSuggestionIndex] = useState(0);
+   const [suggestionsActive, setSuggestionsActive] = useState(false);
+   const [value, setValue] = useState("");
+
+    const handleChange = (e) => {
+        const query = e.target.value.toLowerCase();
+        setValue(query);
+        if (query.length > 1) {
+          const filterSuggestions = autoCompleteData.filter(
+            (suggestion) =>
+              suggestion.toLowerCase().indexOf(query) > -1
+          );
+          setSuggestions(filterSuggestions);
+          setSuggestionsActive(true);
+        } else {
+          setSuggestionsActive(false);
+        }
+      };
+      const handleClicker = (e) => {
+        setSuggestions([]);
+        setValue(e.target.innerText);
+        setSuggestionsActive(false);
+      };
+      const handleKeyDown = (e) => {
+        // UP ARROW
+        if (e.keyCode === 38) {
+          if (suggestionIndex === 0) {
+            return;
+          }
+          setSuggestionIndex(suggestionIndex - 1);
+        }
+        // DOWN ARROW
+        else if (e.keyCode === 40) {
+          if (suggestionIndex - 1 === suggestions.length) {
+            return;
+          }
+          setSuggestionIndex(suggestionIndex + 1);
+        }
+        // ENTER
+        else if (e.keyCode === 13) {
+          setValue(suggestions[suggestionIndex]);
+          setSuggestionIndex(0);
+          setSuggestionsActive(false);
+        }
+      };
+      const Suggestions = () => {
+        return (
+          <ul className="suggestions">
+            {suggestions.map((suggestion, index) => {
+              return (
+                <li
+                  className={index === suggestionIndex ? "active" : ""}
+                  key={index}
+                  onClick={handleClicker}
+                >
+                  {suggestion}
+                </li>
+              );
+            })}
+          </ul>
+        );
+      };
+    
+    //autocomplete
+    // const [suggestions, setSuggestions] = useState([]);
+    // const [suggestionIndex, setSuggestionIndex] = useState(0);
+    // const [suggestionsActive, setSuggestionsActive] = useState(false);
+    // const [value, setValue] = useState("");
 
     // const handleLocation = (e) => {
     //     setLocation(e.target.value)
@@ -53,7 +124,7 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
                 longitude: long,
                 // location: location,
                 term: 'restaurant',
-                categories: category,
+                categories: value,
                 price: price                
             }
         })
@@ -94,12 +165,12 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
                 <option value="sf">SF</option>
             </select> */}
 
-            <select id="select_category" value={category} onChange={handleCategory} > 
+            {/* <select id="select_category" value={category} onChange={handleCategory} > 
                 <option value="italian">Italian</option>
                 <option value="chinese">Chinese</option>
                 <option value="mexican">Mexican</option>
                 <option value="brunch">Brunch</option>
-            </select>
+            </select> */}
 
             <select id="select_price"  value={price} onChange={handlePrice}> 
                 <option value="1">$</option>
@@ -108,7 +179,15 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
                 <option value="4">$$$$</option>
 
             </select>
-            
+
+            <input
+                type="text"
+                placeholder="What are you craving?"
+                value={value}
+                onChange={handleChange} 
+                onKeyDown={handleKeyDown}
+            />
+            {suggestionsActive && <Suggestions />}
 
             <button className='submit-btn' onClick={handleClick}>Search</button>
 
