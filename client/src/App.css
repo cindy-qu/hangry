@@ -13,52 +13,22 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
+/* .App-header { */
+  /* background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-}
+  color: white; */
+/* } */
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-
-/* .home h2 {
-  text-align: left;
-  padding-left: 300px;
-}
-
-.home h2 #spin:after {
-  content:"";
-  animation: spin 2s linear infinite;
-}
-@keyframes spin {
-  0% { content:"breakfast";}
-  10% { content:"lunch";}
-  20% { content:"dinner";}
-  30% { content:"amet";}
-  40% { content:"consectetur";}
-  50% { content: "adipisicing"; }
-  60% { content: "elit"; }
-  70% { content: "Hic"; }
-  80% { content: "atque"; }
-  90% { content: "fuga"; }
-} */
 
 
 .restaurant-detail img{
@@ -83,13 +53,6 @@
 /* -----Global----- */
 .App {
   font-family: var(--font-nunito);
-  /* text-align: center;
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh; */
   
 }
 
@@ -100,6 +63,262 @@ html body{
 
 /* -----Login Container----- */
 .landing-page {
-  color: #383d53;
+  color: #163561;
+}
+
+#exampleModal {
+  text-align: center;
+}
+
+#exampleModal2{
+  text-align: center;
+}
+
+.login-container h2 {
+  text-align: left;
+  
+}
+
+.login-container {
+  padding-left: 10rem;
+  /* margin-top: 10rem; */
+  
+}
+
+.login-container h1{
+  font-size: 100px;
+  padding-bottom: 1.5rem;
+  padding-top: 4rem;
+  
+  
+}
+
+.login-container{
+  background-image: url("./ImagesFolder/loginpage.jpg");
+  background-size: 160rem;
+  background-position: top 35% left 0%;
+  background-repeat: no-repeat; 
+  height: 100vh;
+  width: 100vw;
+
+}
+
+.login-container button{
+  margin-top: 3rem;
+  margin-right: 2rem;
+  background-color: #365ca3;
+}
+
+
+.text-location {
+  float: right;
+  width: 68%;
+
+}
+.text-1 {
+  animation: text1;
+  
+}
+.text-2 {
+  animation: text2;
+}
+.text-3 {
+  animation: text3;
+}
+.text-4 {
+  animation: text4;
+  
+}
+.text-5 {
+  animation: text5;
+}
+.text-6 {
+  animation: text6;
+}
+.text-7 {
+  animation: text7;
+}
+.text-8 {
+  animation: text8;
+}
+.text-1,
+.text-2,
+.text-3,
+.text-4,
+.text-5,
+.text-6,
+.text-7,
+.text-8
+ {
+  margin-left: 5px;
+  vertical-align: top;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  animation-duration: 20s;
+  animation-timing-function: steps(13);
+  animation-iteration-count: infinite;
+}
+.text-1::after,
+.text-2::after,
+.text-3::after,
+.text-4::after,
+.text-5::after,
+.text-6::after,
+.text-7::after,
+.text-8::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  animation: caret infinite;
+  animation-duration: 1s;
+  animation-timing-function: steps(1, end);
+}
+@keyframes text8 {
+  0%,
+  12%,
+  25%,
+  37%,
+  50%,
+  62%,
+  75%,
+  87%,
+  100% {
+    width: 0;
+  }
+  92%,
+  93% {
+    width: 3em;
+  }
+}
+@keyframes text7 {
+  0%,
+  12%,
+  25%,
+  37%,
+  50%,
+  62%,
+  75%,
+  87%,
+  100% {
+    width: 0;
+  }
+  80%,
+  81% {
+    width: 4.5em;
+  }
+}
+@keyframes text6 {
+  0%,
+  12%,
+  25%,
+  37%,
+  50%,
+  62%,
+  75%,
+  87%,
+  100% {
+    width: 0;
+  }
+  69%,
+  70% {
+    width: 3em;
+  }
+}
+@keyframes text5 {
+  0%,
+  12%,
+  25%,
+  37%,
+  50%,
+  62%,
+  75%,
+  87%,
+  100% {
+    width: 0;
+  }
+  58%,
+  59% {
+    width: 2.5em;
+  }
+}
+@keyframes text4 {
+  0%,
+  12%,
+  25%,
+  37%,
+  50%,
+  62%,
+  75%,
+  87%,
+  100% {
+    width: 0;
+  }
+  44%,
+  46% {
+    width: 2.5em;
+  }
+}
+@keyframes text3 {
+  0%,
+  12%,
+  25%,
+  37%,
+  50%,
+  62%,
+  75%,
+  87%,
+  100% {
+    width: 0;
+  }
+  30%,
+  31% {
+    width: 3em;
+  }
+}
+@keyframes text2 {
+  0%,
+  12%,
+  25%,
+  37%,
+  50%,
+  62%,
+  75%,
+  87%,
+  100% {
+    width: 0;
+  }
+  20%,
+  21% {
+    width: 3em;
+  }
+}
+@keyframes text1 {
+  0%,
+  12%,
+  25%,
+  37%,
+  50%,
+  62%,
+  75%,
+  87%,
+  100% {
+    width: 0;
+  }
+  6%,
+  7% {
+    width: 4.5em;
+  }
+}
+@keyframes caret {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
