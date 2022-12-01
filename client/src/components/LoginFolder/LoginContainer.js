@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, Route, Switch  } from "react-router-dom"
 import Login from "./Login"
 import Signup from "./Signup"
 
@@ -14,15 +14,29 @@ const LoginContainer = ({ setUser }) => {
             <h1>Welcome to Hangry</h1>
             <h2>Can't decide where to eat?Let Hangry pick your location<span id="spin"></span></h2>
             <Link to='/login'>
-                <button onClick={() => setShowLogin(true)} >Login!</button>
+                <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Login!</button>
             </Link>
-
+            {/* <div>
+                <div className="loginsignup">
+                    <Login setUser={setUser}/>
+                </div>
+            </div> */}
             <Link to='/signup'>
-                <button onClick={() => setShowLogin(false)}>Sign Up!</button>
+                <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">Sign Up!</button>
             </Link>
+            <div>
+                <div className="loginsignup">
+                    <Login setUser={setUser}/>
+                </div>
+            </div>
+            <div>
+                <div className="loginsignup">
+                    <Signup setUser={setUser}/>
+                </div>
+            </div>
         </div>
 
-        {showLogin ? (
+        {/* {showLogin ? (
             <div>
                 <div className="loginsignup">
                     <Login setUser={setUser}/>
@@ -36,7 +50,7 @@ const LoginContainer = ({ setUser }) => {
                     <Signup setUser={setUser}/>
                 </div>
             </div>
-        )}
+        )} */}
     </div>
   )
 }
