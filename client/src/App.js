@@ -77,7 +77,7 @@ function App() {
   if (!user) return <LoginContainer setUser={setUser} />
 
   return (
-    <div className="App">
+    <div className="App"  >
       <NavBar user={user} setUser={setUser}/>
       <Switch>
 

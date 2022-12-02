@@ -12,21 +12,23 @@ const LoginContainer = ({ setUser }) => {
     <div className="login-container">
         <div className="landing-page">
             <h1 id="landing-header">Hangry</h1>
-            <h2>Can't decide where to eat?</h2>
             
-            <h2>Let Hangry pick your next 
+            
+            <h2>Can't decide where to get ...
                 <span className="text-1">breakfast</span>
                 <span className="text-2">lunch</span>
                 <span className="text-3">dinner</span>  
-                <span className="text-4">taco</span>  
+                <span className="text-4">tacos</span>  
                 <span className="text-5">sushi</span>  
                 <span className="text-6">pizza</span>
-                <span className="text-7">sandwich</span>  
+                <span className="text-7">sandwiches</span>  
                 <span className="text-8">ramen</span>   
 
-                <span className="text-location" >location!</span></h2>
+                {/* <span className="text-location" >location!</span> */}
+            </h2>
+            <h2>Let Hangry decide for you!</h2>
             <Link to='/login'>
-                <button className="btn btn-primary btn-lg" data-bs-toggle="modal" id="landing-button" data-bs-target="#exampleModal">Log In</button>
+                <button className="btn btn-primary btn-lg" data-bs-toggle="modal" id="landing-button" data-bs-target="#exampleModal" >Log In</button>
             </Link>
             {/* <div>
                 <div className="loginsignup">

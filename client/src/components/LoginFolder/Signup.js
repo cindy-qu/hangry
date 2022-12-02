@@ -38,27 +38,35 @@ const Signup = ({ setUser }) => {
         <div className="modal-content">
           <div className="modal-header">  
             <form onSubmit={handleSubmit}>
-              <h1>Sign Up</h1>
-              <label htmlFor="username">Username</label>
+            <div className="modal-header">
+              <h1 className="modal-title fs-8" id="exampleModalLabel">Sign Up</h1>
+            </div>
+            <div className="form-floating mb-3">
               <input
+                className="form-control" 
+                id="floatingInput" 
+                placeholder="username"
                 type="text"
-                id="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
-              <br></br>
-              <br></br>
-              <label htmlFor="password">Password</label>
+              <label htmlFor="username">Username</label>
+            </div>
+            <div className="form-floating mb-3">
               <input
+                className="form-control" 
+                id="floatingInput" 
+                placeholder="password"
                 type="password"
-                id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+               <label htmlFor="floatingInput">Password</label>
+            </div>
               <ul>{formErrorMsg}</ul>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" className="btn btn-primary">Sign Up</button>
+                <button type="submit" className="btn btn-primary" id="loginbutton" data-bs-dismiss="modal">Sign Up</button>
+                <button type="button" className="btn btn-secondary" id="loginclose" data-bs-dismiss="modal">Close</button>
               </div>
             </form>
           </div>

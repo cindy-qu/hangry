@@ -3,7 +3,7 @@ import Search from '../components/SearchFolder/Search'
 const Home = ( {yelp, updateRestaurant, setUpdateRestaurant, lat, long } ) => {
   return (
     
-    <div className='home'>
+    <div className='home' >
         <Search 
         yelp={yelp} 
         updateRestaurant={updateRestaurant} 

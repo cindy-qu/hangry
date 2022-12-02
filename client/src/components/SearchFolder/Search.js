@@ -190,8 +190,8 @@ history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
 
 }
   return (
-
-    <div className="search-container" >
+<div className="card">
+    <div className="search-container" data-backdrop="false" >
       <br></br>
       <p>Get a restaurant based on price range and category!</p>
         <form >
@@ -210,7 +210,7 @@ history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
                 <option value="brunch">Brunch</option>
             </select> */}
 
-            <select id="select_price"  value={price} onChange={handlePrice}> 
+            <select className="form-select" id="select_price"  value={price} onChange={handlePrice}> 
                 <option value="1">$</option>
                 <option value="2">$$</option>
                 <option value="3">$$$</option>
@@ -219,7 +219,8 @@ history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
             </select>
 
             <input
-                type="text"
+                className="form-control" type="search" 
+                id= "searchinput"
                 placeholder="What are you craving?"
                 value={value}
                 onChange={handleChange} 
@@ -227,13 +228,14 @@ history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
             />
             {suggestionsActive && <Suggestions />}
 
-            <button className='submit-btn' onClick={handleClick}>Search</button>
+            <button className='btn btn-primary' onClick={handleClick}>Search</button>
 
 
         </form>
         <br></br>
         <p>Get a restaurant only based on your location!</p>
-        <button className='submit-btn' onClick={handleAdventureClick}>Feeling Adventurous</button>
+        <button className='btn btn-primary' onClick={handleAdventureClick}>Feeling Adventurous</button>
+    </div>
     </div>
   )
 }

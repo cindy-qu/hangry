@@ -34,13 +34,14 @@ const Login = ({ setUser }) => {
     ))
 
   return (
-    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div  className="modal fade" data-backdrop="false" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
         <div className="modal-dialog">
             <div className="modal-content">
                 <div className="modal-header">
+
                     <form onSubmit={handleSubmit}>
                     <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                        <h1 className="modal-title fs-8" id="exampleModalLabel">Login</h1>
                         
                     </div>
                     <div className="form-floating mb-3">
@@ -53,7 +54,7 @@ const Login = ({ setUser }) => {
                     </div>
                         <ul>{formErrorMsg}</ul>
                         <div className="modal-footer">
-                            <button type="submit" className="btn btn-primary" id="loginbutton" data-bs-dismiss="modal">Log In</button>
+                            <button type="submit" className="btn btn-primary" id="loginbutton" data-bs-dismiss="modal" >Log In</button>
                             <button type="button" className="btn btn-secondary" id="loginclose" data-bs-dismiss="modal">Close</button>
                         </div>
                     </form>

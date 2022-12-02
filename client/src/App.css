@@ -42,13 +42,10 @@
   visibility: hidden;
 }
 
-.suggestions .active {
-  background: lightgray;
-}
 
 
 :root{
-  --font-nunito:'Nunito Sans', sans-serif;
+  --font-nunito:'Poppins', sans-serif;
 }
 /* -----Global----- */
 .App {
@@ -57,10 +54,13 @@
 }
 
 html body{
-  background: rgb(204,223,250);
-  background: linear-gradient(90deg, rgba(204,223,250,1) 18%, rgba(182,196,252,1) 100%);
+  background: white;
+  /* background: linear-gradient(90deg, rgba(204,223,250,1) 18%, rgba(182,196,252,1) 100%); */
+  
 }
-
+.modal-backdrop {
+  background-color: none;
+}
 /* -----Login Container----- */
 .landing-page {
   color: #163561;
@@ -86,9 +86,10 @@ html body{
 }
 
 .login-container #landing-header{
-  font-size: 100px;
+  font-size: 150px;
   padding-bottom: 1.5rem;
   padding-top: 4rem;
+  font-weight: 700;
   
   
 }
@@ -160,7 +161,7 @@ html body{
   white-space: nowrap;
   display: inline-block;
   position: relative;
-  animation-duration: 20s;
+  animation-duration: 21s;
   animation-timing-function: steps(13);
   animation-iteration-count: infinite;
 }
@@ -209,8 +210,8 @@ html body{
     width: 0;
   }
   80%,
-  81% {
-    width: 4.5em;
+  83% {
+    width: 5.2em;
   }
 }
 @keyframes text6 {
@@ -341,11 +342,16 @@ html body{
   margin-bottom: 10px;
 }
 
+#exampleModal li {
+  list-style: none;
+  font-weight: bold;
+}
 .modal-header {
   display: block;
   margin-left: 5px;
   margin-right: 20px;
 }
+
 
 
 .modal-footer {
@@ -358,4 +364,101 @@ html body{
 
 #loginbutton:hover {
   background-color: #29467c;
+}
+
+/* -----Signup Modal----- */
+#exampleModal2 input{
+  flex: 0 0 200px;
+  margin-left: 10px;
+}
+
+#exampleModal2 label {
+  /* display: flex;
+  flex-direction: row; */
+  justify-content: flex-end;
+  text-align: left;
+  width: 400px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+#exampleModal2 li {
+  list-style: none;
+  font-weight: bold;
+}
+.modal-header {
+  display: block;
+  margin-left: 5px;
+  margin-right: 20px;
+}
+
+
+
+.modal-footer {
+  display: block;
+}
+
+#loginbutton {
+  background-color: #365ca3;
+}
+
+#loginbutton:hover {
+  background-color: #29467c;
+}
+
+/* -----Navbar----- */
+.navbar {
+  background: rgb(204,223,250);
+  background: linear-gradient(90deg, rgba(204,223,250,1) 18%, rgba(182,196,252,1) 100%);
+}
+
+.navbar {
+  padding: 20px 50px; 
+}
+
+/* -----Search----- */
+.search-container #searchinput{
+  width: 40%;
+  display: inline;
+}
+
+.search-container #select_price{
+  width: 15%;
+  display: inline;
+}
+
+.suggestions li:hover {
+  background: lightgray;
+  list-style: none;
+  
+}
+
+.suggestions {
+  position: absolute;
+  list-style: none;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+
+  right: 0;
+  background-color: #fff; 
+  width: 30%;
+
+  margin-right: 340px;
+} 
+
+.card {
+  margin: 100px auto;
+  float: none;
+  width: 60rem;
+  padding: 150px;
+}
+
+.home{
+  background-image: url("./ImagesFolder/searchimage.jpg");
+  background-size: 200rem;
+  background-position: top 35% left 70%;
+  background-repeat: no-repeat; 
+  height: 79vh;
+  width: 100vw;
 }
