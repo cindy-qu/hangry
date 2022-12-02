@@ -39,17 +39,22 @@ const Login = ({ setUser }) => {
             <div className="modal-content">
                 <div className="modal-header">
                     <form onSubmit={handleSubmit}>
-                        <h1>Login</h1>
-                        <label>Username</label>
-                        <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
-                        <br></br>
-                        <br></br>
-                        <label>Password</label>
-                        <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <div className="modal-header">
+                        <h1 className="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                        
+                    </div>
+                    <div className="form-floating mb-3">
+                     <input className="form-control" id="floatingInput" placeholder="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                     <label htmlFor="floatingInput">Username</label>
+                    </div>
+                    <div className="form-floating mb-3">
+                        <input  className="form-control" id="floatingInput" placeholder="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <label htmlFor="floatingInput">Password</label>
+                    </div>
                         <ul>{formErrorMsg}</ul>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" className="btn btn-primary" data-bs-dismiss="modal">Log In</button>
+                            <button type="submit" className="btn btn-primary" id="loginbutton" data-bs-dismiss="modal">Log In</button>
+                            <button type="button" className="btn btn-secondary" id="loginclose" data-bs-dismiss="modal">Close</button>
                         </div>
                     </form>
                 </div>

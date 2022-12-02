@@ -11,7 +11,7 @@ const LoginContainer = ({ setUser }) => {
   return (
     <div className="login-container">
         <div className="landing-page">
-            <h1>Hangry</h1>
+            <h1 id="landing-header">Hangry</h1>
             <h2>Can't decide where to eat?</h2>
             
             <h2>Let Hangry pick your next 
@@ -26,7 +26,7 @@ const LoginContainer = ({ setUser }) => {
 
                 <span className="text-location" >location!</span></h2>
             <Link to='/login'>
-                <button className="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Login!</button>
+                <button className="btn btn-primary btn-lg" data-bs-toggle="modal" id="landing-button" data-bs-target="#exampleModal">Log In</button>
             </Link>
             {/* <div>
                 <div className="loginsignup">
@@ -34,7 +34,7 @@ const LoginContainer = ({ setUser }) => {
                 </div>
             </div> */}
             <Link to='/signup'>
-                <button className="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2">Sign Up!</button>
+                <button className="btn btn-primary btn-lg" id="landing-button" data-bs-toggle="modal" data-bs-target="#exampleModal2">Sign Up</button>
             </Link>
             <div>
                 <div className="loginsignup">

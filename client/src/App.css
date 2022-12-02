@@ -85,7 +85,7 @@ html body{
   
 }
 
-.login-container h1{
+.login-container #landing-header{
   font-size: 100px;
   padding-bottom: 1.5rem;
   padding-top: 4rem;
@@ -103,12 +103,15 @@ html body{
 
 }
 
-.login-container button{
+#landing-button{
   margin-top: 3rem;
   margin-right: 2rem;
   background-color: #365ca3;
 }
 
+#landing-button:hover{
+  background-color: #29467c;
+}
 
 .text-location {
   float: right;
@@ -322,3 +325,37 @@ html body{
   }
 }
 
+/* -----Login Modal----- */
+#exampleModal input{
+  flex: 0 0 200px;
+  margin-left: 10px;
+}
+
+#exampleModal label {
+  /* display: flex;
+  flex-direction: row; */
+  justify-content: flex-end;
+  text-align: left;
+  width: 400px;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+.modal-header {
+  display: block;
+  margin-left: 5px;
+  margin-right: 20px;
+}
+
+
+.modal-footer {
+  display: block;
+}
+
+#loginbutton {
+  background-color: #365ca3;
+}
+
+#loginbutton:hover {
+  background-color: #29467c;
+}
