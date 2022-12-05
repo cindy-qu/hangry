@@ -9,15 +9,12 @@ const EditBookmarkCard = ( {user, setUpdateBookmarkCard} ) => {
     const paramsObj = useParams()
     const paramsId = parseInt(paramsObj.id)
 
-    const bookmarkId = user.restaurants
-    let matchPersonalNote = bookmarkId.find(book => book.bookmarks.id === paramsId ? book.bookmarks : '')
-console.log(bookmarkId)
-console.log(paramsId)
+    // const bookmarkId = user.restaurants
+    // let matchPersonalNote = bookmarkId.find(book => book.id === paramsId ? book.id : '')
 
-console.log(matchPersonalNote)
-    useEffect(() => {
-        setPersonalNote(matchPersonalNote?.bookmarks.personal_note)
-    },[paramsId])
+    // useEffect(() => {
+    //     setPersonalNote(matchPersonalNote.personal_note)
+    // },[paramsId])
 
 function handleUpdate(e) {
     e.preventDefault()
@@ -55,15 +52,15 @@ const formErrorMsg = errors.map((err) => (
         <form onSubmit={handleUpdate}>
             <textarea
             value={personalNote}
-            onChange={(e)=>{ setPersonalNote(e.target.value)}}
-            />
-            <button type="submit">Update Note</button>
+            onChange={(e)=>{ setPersonalNote(e.target.value)}} />
+            <br></br>
+            <button type="submit" className="btn btn-success">Update Note</button>
         </form>
         <ul>{formErrorMsg}</ul>
         <div id="edit-complete-msg" className={editMsgClassName}>
                 <h3>Edit complete!</h3>
                 <Link to="/myBookmarks">
-                  <button className='submit-btn'>View My Bookmarks
+                  <button className="btn btn-success">View My Bookmarks
                   </button>
                 </Link>
         </div>
