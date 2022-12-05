@@ -41,6 +41,7 @@ const handleBookmark = (e) => {
     restaurant_name: restaurantDetail.name,
     user_id: user.id,
     restaurant_image: restaurantDetail.image_url,
+    yelp_url: restaurantDetail.url,
   }
 
 fetch(`/restaurants`, {

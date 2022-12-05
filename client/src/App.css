@@ -475,3 +475,30 @@ margin-top: 5%;
   height: 200px;
   object-fit: cover;
 }
+
+/* -----Calendar----- */
+#restaurant_name {
+  display: inline;
+  width: 20%;
+  margin-bottom: 1%;
+}
+
+#restaurant_start {
+  display: inline;
+  width: 20%;
+  margin-bottom: 1%;
+}
+#restaurant_end {
+  display: inline;
+  width: 20%;
+  margin-bottom: 1%;
+}
+
+#event-button {
+  background-color: #365ca3;
+}
+
+#event-button:hover {
+  background-color: #29467c;
+}
+

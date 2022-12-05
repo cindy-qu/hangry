@@ -9,6 +9,7 @@ import RestaurantDetail from './components/SearchFolder/RestaurantDetail'
 import MyBookmarks from './components/MyBookmarksFolder/MyBookmarks'
 import AddBookmarkNote from './components/MyBookmarksFolder/AddBookmarkNote'
 import EditBookmarkCard from './components/MyBookmarksFolder/EditBookmarkCard'
+import Calendar from './components/CalendarFolder/Calendar'
 import About from './components/About'
 import yelp from './components/api/Yelp'
 
@@ -103,6 +104,12 @@ function App() {
           <AddBookmarkNote
             user={user}
             setUpdateBookmarkNote={setUpdateBookmarkNote}
+          />
+        </Route>
+
+        <Route exact path="/createEvent">
+          <Calendar
+            user={user}
           />
         </Route>
 

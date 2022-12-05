@@ -11,6 +11,7 @@ const BookmarkList = ( {restaurantBookmarks2, restaurantBookmarks, bookmarks, se
         bookmark_id={bookmark.id}
         restaurant_name={bookmark.restaurant_name}
         restaurant_image={bookmark.restaurant_image}
+        yelp_url={bookmark.yelp_url}
         personal_note={bookmark.bookmarks[0]}
         note_id = {bookmark?.bookmarks[0]?.id}
         setUpdateAfterDelete={setUpdateAfterDelete}

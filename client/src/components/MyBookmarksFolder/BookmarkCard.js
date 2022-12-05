@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const BookmarkCard = ({restaurant_image, note_id, user_id, bookmark_id, restaurant_name, personal_note, setUpdateAfterDelete}) => {
+const BookmarkCard = ({yelp_url, restaurant_image, note_id, user_id, bookmark_id, restaurant_name, personal_note, setUpdateAfterDelete}) => {
   
 
   function handleDelete(){
@@ -27,7 +27,17 @@ const showAddEddit =  personal_note?.personal_note.length > 0 ? "Edit Note" : "A
         </div>
 
           <ul class="list-group list-group-flush">
-    <li class="list-group-item"> <p className="card-text"> {personal_note?.personal_note}</p></li>
+    <li class="list-group-item"> 
+      <p className="card-text"> {personal_note?.personal_note}</p>
+    </li>
+    <li class="list-group-item"> 
+    <a href={yelp_url} target="_blank" rel="noreferrer">
+        <button className="btn btn-danger">Yelp Page</button>
+      </a>
+    <Link to="/createEvent">
+        <button className="btn btn-primary" >Create Event</button>
+    </Link>
+    </li>
     <li class="list-group-item">
               
     <Link to={linkAddEdit}>
