@@ -190,8 +190,8 @@ history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
 
 }
   return (
-<div className="card">
-    <div className="search-container" data-backdrop="false" >
+<div className="card" id="search-card">
+    <div className="search-container" data-backdrop="false">
       <br></br>
       <p>Get a restaurant based on price range and category!</p>
         <form >

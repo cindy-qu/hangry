@@ -40,6 +40,7 @@ const handleBookmark = (e) => {
   const restaurantData = {
     restaurant_name: restaurantDetail.name,
     user_id: user.id,
+    restaurant_image: restaurantDetail.image_url,
   }
 
 fetch(`/restaurants`, {
@@ -74,18 +75,18 @@ const formErrorMsg = errors?.map((err) => (
       <ul>Price Range: {restaurantDetail?.price}</ul>
       <ul>Address: {locationMap}</ul>
       <a href={restaurantDetail?.url} target="_blank" rel="noreferrer">
-        <button>Yelp Page</button>
+        <button className="btn btn-danger">Yelp Page</button>
       </a>
       <br />
       <br />
       
       <br />
-      <button onClick={handleBookmark}>Bookmark for Later</button>
+      <button onClick={handleBookmark} className="btn btn-primary">Bookmark for Later</button>
       <ul>{formErrorMsg}</ul>
       <div id="edit-complete-msg" className={editMsgClassName}>
                 <h3>Bookmarked!</h3>
                 <Link to="/myBookmarks">
-                  <button className='submit-btn'>View My Bookmarks
+                  <button className="btn btn-primary">View My Bookmarks
                   </button>
                 </Link>
         </div>

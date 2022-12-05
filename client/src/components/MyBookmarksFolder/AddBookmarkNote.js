@@ -45,7 +45,7 @@ const AddBookmarkNote = ({ user, setUpdateBookmarkNote }) => {
 
   return (
     <div>
-
+      <h1>Add Note</h1>
     
       <textarea
       value={createPersonalNote}

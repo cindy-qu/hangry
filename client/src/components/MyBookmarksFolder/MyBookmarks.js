@@ -14,9 +14,9 @@ const MyBookmarks = ( { restaurantBookmarks, user } ) => {
       }
     });
   }, [updateAfterDelete])
-
+// console.log(user2?.restaurants)
   return (
-    <div>
+    <div >
       <h1>My Bookmarks</h1>
       <BookmarkList 
       user_id={user.id}

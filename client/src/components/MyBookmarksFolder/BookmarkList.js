@@ -10,6 +10,7 @@ const BookmarkList = ( {restaurantBookmarks2, restaurantBookmarks, bookmarks, se
         key={bookmark.id}
         bookmark_id={bookmark.id}
         restaurant_name={bookmark.restaurant_name}
+        restaurant_image={bookmark.restaurant_image}
         personal_note={bookmark.bookmarks[0]}
         note_id = {bookmark?.bookmarks[0]?.id}
         setUpdateAfterDelete={setUpdateAfterDelete}
@@ -19,7 +20,7 @@ const BookmarkList = ( {restaurantBookmarks2, restaurantBookmarks, bookmarks, se
    
    })
   return (
-    <div>
+    <div className ="row" id="bookmarkcard">
         {/* <h1>BookmarkList</h1> */}
         {renderBookmarkCard}
     </div>

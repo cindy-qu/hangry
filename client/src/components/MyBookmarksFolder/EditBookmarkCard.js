@@ -9,12 +9,15 @@ const EditBookmarkCard = ( {user, setUpdateBookmarkCard} ) => {
     const paramsObj = useParams()
     const paramsId = parseInt(paramsObj.id)
 
-    // const bookmarkId = user.restaurants
-    // let matchPersonalNote = bookmarkId.find(book => book.id === paramsId ? book.id : '')
+    const bookmarkId = user.restaurants
+    let matchPersonalNote = bookmarkId.find(book => book.bookmarks.id === paramsId ? book.bookmarks : '')
+console.log(bookmarkId)
+console.log(paramsId)
 
-    // useEffect(() => {
-    //     setPersonalNote(matchPersonalNote.personal_note)
-    // },[paramsId])
+console.log(matchPersonalNote)
+    useEffect(() => {
+        setPersonalNote(matchPersonalNote?.bookmarks.personal_note)
+    },[paramsId])
 
 function handleUpdate(e) {
     e.preventDefault()
@@ -52,7 +55,8 @@ const formErrorMsg = errors.map((err) => (
         <form onSubmit={handleUpdate}>
             <textarea
             value={personalNote}
-            onChange={(e)=>{ setPersonalNote(e.target.value)}} />
+            onChange={(e)=>{ setPersonalNote(e.target.value)}}
+            />
             <button type="submit">Update Note</button>
         </form>
         <ul>{formErrorMsg}</ul>

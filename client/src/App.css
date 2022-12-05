@@ -29,15 +29,6 @@
 }
 
 
-
-
-.restaurant-detail img{
-  border-radius: 4px;
-  margin: 15px 0px;
-  width: 30vw;
-  max-width: 400px;
-}
-
 .hidden {
   visibility: hidden;
 }
@@ -447,18 +438,40 @@ html body{
   margin-right: 340px;
 } 
 
-.card {
-  margin: 100px auto;
-  float: none;
-  width: 60rem;
-  padding: 150px;
-}
 
 .home{
   background-image: url("./ImagesFolder/searchimage.jpg");
-  background-size: 200rem;
-  background-position: top 35% left 70%;
+  background-size: 150rem;
+  background-position: top 50% left 80%;
   background-repeat: no-repeat; 
-  height: 79vh;
+  height: calc(95vh - 150px);
   width: 100vw;
+  
+}
+
+/* -----RestaurantDetail----- */
+
+.restaurant-detail img{
+  border-radius: 45px;
+  margin: 15px 0px;
+  width: 30vw;
+  max-width: 400px;
+}
+
+
+/* -----Bookmarks----- */
+.col-sm-3 {
+margin-top: 5%;
+
+}
+
+.row  {
+  margin: 2%;
+  
+}
+
+.row img{
+  width: auto;;
+  height: 200px;
+  object-fit: cover;
 }
