@@ -1,6 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
-const Calendar = () => {
+const Calendar = ({ user }) => {
+    const [updated, setUpdated] = useState(false);
+
+const paramsObj = useParams()
+const paramsId = parseInt(paramsObj.id)
+const [updateRestaurantName, setUpdateRestaurantName] = useState("")
+
+const bookmarkId = user.restaurants
+let matchRestaurantName = bookmarkId.find(book => book.id === paramsId ? book.id : '')
+// console.log(matchRestaurantName)
+useEffect(() => {
+    setUpdateRestaurantName(matchRestaurantName.restaurant_name)
+  }, [paramsId])
 
     // form state
     const [restaurantName, setRestaurantName] = useState("")
@@ -11,9 +24,7 @@ const Calendar = () => {
     const handleRestaurantName = (e) => {
         setRestaurantName(e.target.value)
     }
-    // const handleRestaurantDate = (e) => {
-    //     setRestaurantDate(e.target.value)
-    // }
+
     const handleRestaurantStart = (e) => {
         setRestaurantStart(e.target.value)
     }
@@ -27,8 +38,6 @@ const Calendar = () => {
     }
 
 
-console.log(restaurantStart)
-console.log(restaurantTimezone)
 // google calendar
     var gapi = window.gapi
 
@@ -41,6 +50,7 @@ console.log(restaurantTimezone)
 
     const handleSubmitEvent = (e) => {
         e.preventDefault()
+        setUpdated(updated => !updated)
         gapi.load('client:auth2', () => {
             
             gapi.client.init({
@@ -58,7 +68,7 @@ console.log(restaurantTimezone)
             .then(() => {
 
                 var event = {
-                    'summary': `${restaurantName}`,
+                    'summary': `${matchRestaurantName?.restaurant_name}`,
           
              
                     'start': {
@@ -89,31 +99,48 @@ console.log(restaurantTimezone)
                   })
 
                   request.execute(event => {
-                    console.log(event)
+                    // console.log(event)
                     window.open(event.htmlLink)
                   })
 
             })
         })
+        
     }
-
-
-
+    const editCalendarEvent = updated ? '' : 'hidden';
+// console.log((new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0]))
   return (
     <div>
         <h1>Create Event</h1>
         <form className="mb-3" onSubmit={handleSubmitEvent}>
             
             <label className="form-label">Restaurant</label>
-            <input className="form-control"  id="restaurant_name" type="text" value={restaurantName} onChange={handleRestaurantName} required/>
+            <input className="form-control"
+                id="restaurant_name"
+                type="text"
+
+                value={updateRestaurantName}
+                onChange={setUpdateRestaurantName}
+                required/>
             <br></br>
-            {/* <label>Date</label>
-            <input type="date" id="restaurant_date" value={restaurantDate} onChange={handleRestaurantDate} required/> */}
+
             <label className="form-label">Start</label>
-            <input className="form-control" type="datetime-local" id="restaurant_start" value={restaurantStart} onChange={handleRestaurantStart} required/>
+            <input className="form-control" 
+                type="datetime-local" 
+                id="restaurant_start" 
+                value={restaurantStart} 
+                onChange={handleRestaurantStart} 
+                min = "2022-12-05T00:00:00"
+                required/>
             <br></br>
             <label className="form-label">End</label>
-            <input className="form-control" type="datetime-local" id="restaurant_end" value={restaurantEnd} onChange={handleRestaurantEnd} required/>
+            <input className="form-control" 
+                type="datetime-local" 
+                id="restaurant_end" 
+                value={restaurantEnd} 
+                onChange={handleRestaurantEnd} 
+                min = "2022-12-05T00:00:00"
+                required/>
             
             <br></br>
             <label className="form-label">Timezone</label>
@@ -205,6 +232,14 @@ console.log(restaurantTimezone)
            
             <br></br>
             <button className="btn btn-primary" id="event-button"  type="submit">Create Event</button>
+            <div id="calendar-complete-msg" className={editCalendarEvent}>
+                <h3>Edit complete!</h3>
+                <Link to="/myBookmarks">
+                  <button className="btn btn-success">View My Bookmarks
+                  </button>
+                </Link>
+        </div>
+       
         </form>
     </div>
   )

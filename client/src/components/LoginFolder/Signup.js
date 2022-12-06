@@ -44,7 +44,7 @@ const Signup = ({ setUser }) => {
             <div className="form-floating mb-3">
               <input
                 className="form-control" 
-                id="floatingInput" 
+                id="floatingInput3" 
                 placeholder="username"
                 type="text"
                 value={username}
@@ -55,7 +55,7 @@ const Signup = ({ setUser }) => {
             <div className="form-floating mb-3">
               <input
                 className="form-control" 
-                id="floatingInput" 
+                id="floatingInput4" 
                 placeholder="password"
                 type="password"
                 value={password}
@@ -65,8 +65,8 @@ const Signup = ({ setUser }) => {
             </div>
               <ul>{formErrorMsg}</ul>
               <div className="modal-footer">
-                <button type="submit" className="btn btn-primary" id="loginbutton" data-bs-dismiss="modal">Sign Up</button>
-                <button type="button" className="btn btn-secondary" id="loginclose" data-bs-dismiss="modal">Close</button>
+                <button type="submit" className="btn btn-primary" id="loginbutton2" data-bs-dismiss="modal">Sign Up</button>
+                <button type="button" className="btn btn-secondary" id="loginclose2" data-bs-dismiss="modal">Close</button>
               </div>
             </form>
           </div>

@@ -19,11 +19,11 @@ const NavBar = ( {user, setUser }) => {
     <div className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
         <span className="navbar-brand mb-0 h1">Hangry</span>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div className="navbar-nav">
             <NavLink className="nav-link" to="/">Home</NavLink>
             <NavLink className="nav-link" to="/myBookmarks">My Bookmarks</NavLink>
             <NavLink className="nav-link" to="/about">About</NavLink>

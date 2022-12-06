@@ -389,11 +389,11 @@ html body{
   display: block;
 }
 
-#loginbutton {
+#loginbutton2 {
   background-color: #365ca3;
 }
 
-#loginbutton:hover {
+#loginbutton2:hover {
   background-color: #29467c;
 }
 
@@ -408,6 +408,13 @@ html body{
 }
 
 /* -----Search----- */
+
+#search-card{
+  margin-top: 8%;
+  margin-left: 25%;
+  width: 50%;
+  padding-bottom: 3%;
+}
 .search-container #searchinput{
   width: 40%;
   display: inline;
@@ -444,7 +451,7 @@ html body{
   background-size: 150rem;
   background-position: top 50% left 80%;
   background-repeat: no-repeat; 
-  height: calc(95vh - 150px);
+  height: calc(90vh - 150px);
   width: 100vw;
   
 }
@@ -461,7 +468,7 @@ html body{
 
 /* -----Bookmarks----- */
 .col-sm-3 {
-margin-top: 5%;
+margin-top: 1%;
 
 }
 
@@ -502,3 +509,4 @@ margin-top: 5%;
   background-color: #29467c;
 }
 
+/* -----About----- */

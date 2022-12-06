@@ -26,19 +26,21 @@ const showAddEddit =  personal_note?.personal_note.length > 0 ? "Edit Note" : "A
         <h5 className="card-title">{restaurant_name}</h5>
         </div>
 
-          <ul class="list-group list-group-flush">
-    <li class="list-group-item"> 
+          <ul className="list-group list-group-flush">
+    <li className="list-group-item"> 
       <p className="card-text"> {personal_note?.personal_note}</p>
     </li>
-    <li class="list-group-item"> 
+    <li className="list-group-item"> 
     <a href={yelp_url} target="_blank" rel="noreferrer">
         <button className="btn btn-danger">Yelp Page</button>
       </a>
-    <Link to="/createEvent">
+
+    <Link to={`/createEvent/${bookmark_id}`}>
         <button className="btn btn-primary" >Create Event</button>
     </Link>
+
     </li>
-    <li class="list-group-item">
+    <li className="list-group-item">
               
     <Link to={linkAddEdit}>
               <button className= "btn btn-success" >{showAddEddit}</button>

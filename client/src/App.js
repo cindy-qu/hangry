@@ -107,7 +107,7 @@ function App() {
           />
         </Route>
 
-        <Route exact path="/createEvent">
+        <Route exact path="/createEvent/:id">
           <Calendar
             user={user}
           />

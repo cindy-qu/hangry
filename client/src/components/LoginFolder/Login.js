@@ -49,7 +49,7 @@ const Login = ({ setUser }) => {
                      <label htmlFor="floatingInput">Username</label>
                     </div>
                     <div className="form-floating mb-3">
-                        <input  className="form-control" id="floatingInput" placeholder="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <input  className="form-control" id="floatingInput2" placeholder="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         <label htmlFor="floatingInput">Password</label>
                     </div>
                         <ul>{formErrorMsg}</ul>
