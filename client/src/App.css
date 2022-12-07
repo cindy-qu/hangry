@@ -409,12 +409,7 @@ html body{
 
 /* -----Search----- */
 
-#search-card{
-  margin-top: 8%;
-  margin-left: 25%;
-  width: 50%;
-  padding-bottom: 3%;
-}
+
 .search-container #searchinput{
   width: 40%;
   display: inline;
@@ -425,7 +420,7 @@ html body{
   display: inline;
 }
 
-.suggestions li:hover {
+.suggestions p:hover {
   background: lightgray;
   list-style: none;
   
@@ -442,23 +437,29 @@ html body{
   background-color: #fff; 
   width: 30%;
 
-  margin-right: 340px;
+  margin-right: 300px;
 } 
 
 
-.home{
+.card-background{
   background-image: url("./ImagesFolder/searchimage.jpg");
-  background-size: 150rem;
-  background-position: top 50% left 80%;
-  background-repeat: no-repeat; 
-  height: calc(90vh - 150px);
-  width: 100vw;
+  height: 83vh; 
+  background-position: top 30% left 1%;
+  background-repeat: no-repeat;
+  background-size: 140rem;
+
   
+}
+#search-card{
+  padding: 50px 50px;
+  margin: 4% auto;
+  width: 60vw;
+  max-width: 900px;
 }
 
 /* -----RestaurantDetail----- */
 
-.restaurant-detail img{
+.restaurant-detail #restaurant-image{
   border-radius: 45px;
   margin: 15px 0px;
   width: 30vw;
@@ -471,6 +472,30 @@ html body{
 margin-top: 1%;
 
 }
+#bookmark-close {
+  transition: .5s ease;
+  position: absolute;
+  top: 3%;
+  right: 1px;
+  opacity: 0;
+  /* transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); */
+}
+
+/* #hover-option {
+  opacity: 0;
+  transition: .5s ease;
+}
+
+.col-sm-3:hover #hover-option {
+  opacity: 1;
+  
+  } */
+
+.col-sm-3:hover #bookmark-close {
+  opacity: 1;
+  
+  }
 
 .row  {
   margin: 2%;
@@ -510,3 +535,98 @@ margin-top: 1%;
 }
 
 /* -----About----- */
+
+
+.about {
+  background-image: url("./ImagesFolder/about.jpg");
+  height: 83vh; 
+  background-position: top 30% left 80%;
+  background-repeat: no-repeat;
+  background-size: 120rem;
+}
+
+#about-details {
+  padding: 50px 50px;
+  margin: 4% auto;
+  width: 60vw;
+  max-width: 900px;
+  background-color: white;
+
+}
+/* .openModalBtn {
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background-color: cornflowerblue;
+  color: white;
+  cursor: pointer;
+}
+.modalBackground {
+
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modalContainer .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modalContainer .body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.modalContainer .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer .footer button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#cancelBtn {
+  background-color: crimson;
+} */

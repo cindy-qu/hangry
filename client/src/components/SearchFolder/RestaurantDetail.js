@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
+
 const RestaurantDetail = ( { yelp, user, setUpdateAfterBookmark } ) => {
 
     const [restaurantDetail, setRestaurantDetail] = useState([]);
@@ -63,16 +64,26 @@ fetch(`/restaurants`, {
   }
 })
 }
+// console.log(small_25)
+var newnumber = parseInt(restaurantDetail?.rating?.toString().replace('.', ''))
+// console.log(restaurantDetail?.rating)
+// console.log(newnumber)
+
 
 const formErrorMsg = errors?.map((err) => (
   <p key={err}>{err}</p>
   ))
   const editMsgClassName = updated ? '' : 'hidden';
+
+
   return (
     <div className= "restaurant-detail">
       <h2>{restaurantDetail?.name}</h2>
-      <img src={restaurantDetail?.image_url} alt={restaurantDetail?.name}/>
-      <ul>Yelp Rating: {restaurantDetail?.rating}</ul>
+      <img id="restaurant-image" src={restaurantDetail?.image_url} alt={restaurantDetail?.name}/>
+      <ul>Yelp Rating: <img id="yelp-rating" src={`/images/small_${newnumber}.png`} alt={restaurantDetail?.rating}></img></ul>
+
+      
+      
       <ul>Price Range: {restaurantDetail?.price}</ul>
       <ul>Address: {locationMap}</ul>
       <a href={restaurantDetail?.url} target="_blank" rel="noreferrer">

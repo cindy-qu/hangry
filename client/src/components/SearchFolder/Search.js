@@ -70,19 +70,19 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
       };
       const Suggestions = () => {
         return (
-          <ul className="suggestions">
+          <div className="suggestions">
             {suggestions.map((suggestion, index) => {
               return (
-                <li
+                <p
                   className={index === suggestionIndex ? "active" : ""}
                   key={index}
                   onClick={handleClicker}
                 >
                   {suggestion}
-                </li>
+                </p>
               );
             })}
-          </ul>
+          </div>
         );
       };
     
@@ -190,11 +190,12 @@ history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
 
 }
   return (
-<div className="card" id="search-card">
+    <div className="card-background">
+    <div className="card" id="search-card">
     <div className="search-container" data-backdrop="false">
       <br></br>
       <p>Get a restaurant based on price range and category!</p>
-        <form >
+        <form className="search-bar">
 
             {/* <select id="select_location" value={location} onChange={handleLocation} > 
                 <option value="hi">Your Current Location</option>
@@ -220,6 +221,7 @@ history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
 
             <input
                 className="form-control" type="search" 
+                autoComplete="off"
                 id= "searchinput"
                 placeholder="What are you craving?"
                 value={value}
@@ -235,6 +237,7 @@ history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
         <br></br>
         <p>Get a restaurant only based on your location!</p>
         <button className='btn btn-primary' onClick={handleAdventureClick}>Feeling Adventurous</button>
+    </div>
     </div>
     </div>
   )
