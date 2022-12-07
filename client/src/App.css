@@ -145,7 +145,7 @@ html body{
 .text-7,
 .text-8
  {
-  margin-left: 5px;
+
   vertical-align: top;
   text-align: left;
   overflow: hidden;
@@ -507,6 +507,24 @@ margin-top: 1%;
   height: 200px;
   object-fit: cover;
 }
+
+#close-CSS {
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+#close-CSS img {
+height: 20px
+}
+
+#yelp-CSS img {
+  height: 20px
+  }
+  #google-CSS img {
+    height: 20px
+    }
+
 
 /* -----Calendar----- */
 #restaurant_name {
