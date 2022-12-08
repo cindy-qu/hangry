@@ -110,7 +110,7 @@ useEffect(() => {
     const editCalendarEvent = updated ? '' : 'hidden';
 // console.log((new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0]))
   return (
-    <div>
+    <div className="calendarpage">
         <h1>Create Event</h1>
         <form className="mb-3" onSubmit={handleSubmitEvent}>
             
@@ -233,7 +233,7 @@ useEffect(() => {
             <br></br>
             <button className="btn btn-primary" id="event-button"  type="submit">Create Event</button>
             <div id="calendar-complete-msg" className={editCalendarEvent}>
-                <h3>Edit complete!</h3>
+                <h3>Event added!</h3>
                 <Link to="/myBookmarks">
                   <button className="btn btn-success">View My Bookmarks
                   </button>

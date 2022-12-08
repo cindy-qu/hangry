@@ -25,13 +25,14 @@ const NavBar = ( {user, setUser }) => {
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
             <NavLink className="nav-link" to="/">Home</NavLink>
-            <NavLink className="nav-link" to="/myBookmarks">My Bookmarks</NavLink>
+            <NavLink className="nav-link" to="/myBookmarks">Bookmarks</NavLink>
             <NavLink className="nav-link" to="/about">About</NavLink>
             
-            <span>Hello {user.username}</span>
-            <button className="btn btn-secondary" onClick={handleLogoutUser}>Logout</button>
+
           </div>
         </div>
+        <span className="welcome">Hello, {user.username}</span>
+            <button className="btn btn-secondary" onClick={handleLogoutUser}>Logout</button>
       </div>
     </div>
   )

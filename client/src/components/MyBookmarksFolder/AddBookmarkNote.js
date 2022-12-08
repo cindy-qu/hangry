@@ -48,16 +48,19 @@ const AddBookmarkNote = ({ user, setUpdateBookmarkNote }) => {
       <h1>Add Note</h1>
     
       <textarea
+      className="form-control" 
+      id="exampleFormControlTextarea1" 
+      rows="4"
       value={createPersonalNote}
       onChange={(e)=>{ setCreatePersonalNote(e.target.value) }}
        />
        <br></br>
-    <button className= "create-btn" onClick={handleCreateNote} >Add Note</button>
+    <button className='btn btn-primary' id="addnote" onClick={handleCreateNote} >Add Note</button>
     <ul>{formErrorMsg}</ul>
     <div id="edit-complete-msg" className={editMsgClassName}>
                 <h3>Note Added!</h3>
                 <Link to="/myBookmarks">
-                  <button className='submit-btn'>View My Bookmarks
+                  <button className='btn btn-success'>View My Bookmarks
                   </button>
                 </Link>
         </div>

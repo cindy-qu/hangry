@@ -51,10 +51,13 @@ const formErrorMsg = errors.map((err) => (
         <h1>Edit Note</h1>
         <form onSubmit={handleUpdate}>
             <textarea
+            className="form-control" 
+            id="exampleFormControlTextarea2" 
+            rows="4"
             value={personalNote}
             onChange={(e)=>{ setPersonalNote(e.target.value)}} />
             <br></br>
-            <button type="submit" className="btn btn-success">Update Note</button>
+            <button type="submit" className="btn btn-primary" id="editnote">Update Note</button>
         </form>
         <ul>{formErrorMsg}</ul>
         <div id="edit-complete-msg" className={editMsgClassName}>

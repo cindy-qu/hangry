@@ -146,9 +146,14 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
             return (Math.floor(Math.random() * (max - min)) + min).toString()
         }
         // console.log(updateRestaurant)
-        // console.log(restaurantArray)
+        // console.log(restaurantArray.length)
         // console.log(restaurantArray[generateRandomPrice()])
-        history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
+        if (restaurantArray.length > 0) {
+          history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
+        } else {
+          history.push(`/tryagain`)
+        }
+        // history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
 
     }
 //   const currentLocation = {lat, long}

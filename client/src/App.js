@@ -6,6 +6,7 @@ import LoginContainer from './components/LoginFolder/LoginContainer'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
 import RestaurantDetail from './components/SearchFolder/RestaurantDetail'
+import TryAgain from './components/SearchFolder/TryAgain'
 import MyBookmarks from './components/MyBookmarksFolder/MyBookmarks'
 import AddBookmarkNote from './components/MyBookmarksFolder/AddBookmarkNote'
 import EditBookmarkCard from './components/MyBookmarksFolder/EditBookmarkCard'
@@ -89,6 +90,11 @@ function App() {
         <Route exact path="/restaurants/:id">
           <RestaurantDetail user={user} yelp={yelp} setUpdateAfterBookmark={setUpdateAfterBookmark} updateRestaurant={updateRestaurant} setUpdateRestaurant={setUpdateRestaurant} />
         </Route>
+
+        <Route exact path="/tryagain">
+          <TryAgain user={user} yelp={yelp} setUpdateAfterBookmark={setUpdateAfterBookmark} updateRestaurant={updateRestaurant} setUpdateRestaurant={setUpdateRestaurant} />
+        </Route>
+
 
         <Route exact path="/myBookmarks">
           <MyBookmarks restaurantBookmarks={restaurantBookmarks} user={user} setUpdateAfterDelete={setUpdateAfterDelete}/>

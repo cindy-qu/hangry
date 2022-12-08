@@ -48,7 +48,7 @@ const showIcon =  personal_note?.personal_note.length > 0 ? "/images/pencil.png"
              </a>
 
               <Link to={`/createEvent/${bookmark_id}`}>
-                  <button className="btn btn-danger" id="google-CSS"><img src="/images/google-calendar.png" alt="/images/google-calendar.png"></img>Create Event</button>
+                  <button className="btn btn-primary" id="google-CSS"><img src="/images/google-calendar.png" alt="/images/google-calendar.png"></img>Create Event</button>
               </Link>
 
             </li>

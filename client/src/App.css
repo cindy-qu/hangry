@@ -351,6 +351,7 @@ html body{
 
 #loginbutton {
   background-color: #365ca3;
+  border-color: transparent;
 }
 
 #loginbutton:hover {
@@ -391,6 +392,7 @@ html body{
 
 #loginbutton2 {
   background-color: #365ca3;
+  border-color: transparent;
 }
 
 #loginbutton2:hover {
@@ -398,6 +400,11 @@ html body{
 }
 
 /* -----Navbar----- */
+.welcome{
+  margin-left:30px;
+  margin-right:30px;
+}
+
 .navbar {
   background: rgb(204,223,250);
   background: linear-gradient(90deg, rgba(204,223,250,1) 18%, rgba(182,196,252,1) 100%);
@@ -465,9 +472,57 @@ html body{
   width: 30vw;
   max-width: 400px;
 }
+/* -----TryAgain----- */
+.tryagain{
+  background-image: url("./ImagesFolder/tryagain.jpg");
+  height: 91vh; 
+  background-position: top 60% left 50%;
+  background-repeat: no-repeat;
+  background-size: 40rem;
+  
+}
+
+.tryagain h1{
+  padding: 20px 50px;
+  margin: 2% auto;
+  width: 60vw;
+  max-width: 900px;
+
+  
+}
+
+#try-again-button {
+  background-color: #365ca3;
+}
+
+#try-again-button:hover {
+  background-color: #29467c;
+}
+
+
 
 
 /* -----Bookmarks----- */
+
+#google-CSS {
+  background-color: #365ca3;
+  border-color: transparent;
+  margin-left: 10px;
+}
+
+#yelp-CSS:hover {
+  background-color: #29467c;
+}
+
+#yelp-CSS {
+  background-color: #365ca3;
+  border-color: transparent;
+}
+
+#google-CSS:hover {
+  background-color: #29467c;
+}
+
 .col-sm-3 {
 margin-top: 1%;
 
@@ -546,10 +601,19 @@ height: 20px
 
 #event-button {
   background-color: #365ca3;
+  border-color: transparent;
 }
 
 #event-button:hover {
   background-color: #29467c;
+}
+
+.calendarpage {
+  background-image: url("./ImagesFolder/calendar.jpg");
+  height: 90vh; 
+  background-position: top 30% right 10%;
+  background-repeat: no-repeat;
+  background-size: 80rem;
 }
 
 /* -----About----- */
@@ -648,3 +712,32 @@ height: 20px
 #cancelBtn {
   background-color: crimson;
 } */
+/* -----Add note ----- */
+#addnote:hover {
+  background-color: #29467c;
+}
+
+#addnote {
+  background-color: #365ca3;
+  border-color: transparent;
+}
+
+#exampleFormControlTextarea1{
+  width: 30%;
+  display: inline;
+}
+
+/* -----Edit note ----- */
+#editnote:hover {
+  background-color: #29467c;
+}
+
+#editnote {
+  background-color: #365ca3;
+  border-color: transparent;
+}
+
+#exampleFormControlTextarea2{
+  width: 30%;
+  display: inline;
+}
