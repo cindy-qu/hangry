@@ -120,8 +120,10 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
         const data = await yelp.get('/search', {
             params: {
                 limit: 5,
-                latitude: 37.3308372,
-                longitude: -121.9083366,
+                // latitude: 37.3308372,
+                // longitude: -121.9083366,
+                latitude: lat,
+                longitude: long,
                 // location: location,
                 term: 'restaurant',
                 categories: value,
@@ -172,8 +174,10 @@ async function fetchAdventureRestaurant(){
   const data = await yelp.get('/search', {
       params: {
           limit: 10,
-          latitude: 37.3308372,
-          longitude: -121.9083366,
+          // latitude: 37.3308372,
+          // longitude: -121.9083366,
+          latitude: lat,
+          longitude: long,
           term: 'restaurant',
           // categories: value,
           price: generateRandomPrice()                

@@ -1,11 +1,11 @@
-import React, { useState } from "react"
-import { Link, Route, Switch  } from "react-router-dom"
+import React from "react"
+import { Link } from "react-router-dom"
 import Login from "./Login"
 import Signup from "./Signup"
 
 const LoginContainer = ({ setUser }) => {
 
-    const [showLogin, setShowLogin] = useState(true);
+    // const [showLogin, setShowLogin] = useState(true);
 
  
   return (

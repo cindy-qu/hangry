@@ -24,7 +24,7 @@ const NavBar = ( {user, setUser }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
-            <NavLink className="nav-link" to="/">Home</NavLink>
+            <NavLink className="nav-link" to="/">Search</NavLink>
             <NavLink className="nav-link" to="/myBookmarks">Bookmarks</NavLink>
             <NavLink className="nav-link" to="/about">About</NavLink>
             

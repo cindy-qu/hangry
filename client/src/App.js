@@ -80,6 +80,10 @@ function App() {
 
   return (
     <div className="App"  >
+      <div>
+        {errors}
+        {locationError}
+      </div>
       <NavBar user={user} setUser={setUser}/>
       <Switch>
 

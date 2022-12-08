@@ -16,14 +16,14 @@ useEffect(() => {
   }, [paramsId])
 
     // form state
-    const [restaurantName, setRestaurantName] = useState("")
+    // const [restaurantName, setRestaurantName] = useState("")
     const [restaurantStart, setRestaurantStart] = useState("")
     const [restaurantEnd, setRestaurantEnd] = useState("")
     const [restaurantTimezone, setRestaurantTimezone] = useState("")
     // values from form input
-    const handleRestaurantName = (e) => {
-        setRestaurantName(e.target.value)
-    }
+    // const handleRestaurantName = (e) => {
+    //     setRestaurantName(e.target.value)
+    // }
 
     const handleRestaurantStart = (e) => {
         setRestaurantStart(e.target.value)

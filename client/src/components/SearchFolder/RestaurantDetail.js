@@ -11,7 +11,7 @@ const RestaurantDetail = ( { yelp, user, setUpdateAfterBookmark } ) => {
 
     const params = useParams();
 
-console.log(params.id)
+// console.log(params.id)
 
 
       useEffect(() => {
