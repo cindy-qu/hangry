@@ -11,6 +11,7 @@ import MyBookmarks from './components/MyBookmarksFolder/MyBookmarks'
 import AddBookmarkNote from './components/MyBookmarksFolder/AddBookmarkNote'
 import EditBookmarkCard from './components/MyBookmarksFolder/EditBookmarkCard'
 import Calendar from './components/CalendarFolder/Calendar'
+import ShowCalendar from './components/CalendarFolder/ShowCalendar'
 import About from './components/About'
 import yelp from './components/api/Yelp'
 
@@ -115,6 +116,12 @@ function App() {
 
         <Route exact path="/createEvent/:id">
           <Calendar
+            user={user}
+          />
+        </Route>
+
+        <Route exact path="/myCalendar">
+          <ShowCalendar
             user={user}
           />
         </Route>

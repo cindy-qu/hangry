@@ -26,6 +26,7 @@ const NavBar = ( {user, setUser }) => {
         <div className="navbar-nav">
             <NavLink className="nav-link" to="/">Home</NavLink>
             <NavLink className="nav-link" to="/myBookmarks">Bookmarks</NavLink>
+            <NavLink className="nav-link" to="/myCalendar">Calendar</NavLink>
             <NavLink className="nav-link" to="/about">About</NavLink>
             
 

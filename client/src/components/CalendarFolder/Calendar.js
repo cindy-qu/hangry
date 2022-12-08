@@ -3,7 +3,8 @@ import { Link, useParams } from 'react-router-dom'
 
 const Calendar = ({ user }) => {
     const [updated, setUpdated] = useState(false);
-
+    const [errors, setErrors] = useState([]);
+    const [calendarDetail, setCalendarDetail] = useState([]);
 const paramsObj = useParams()
 const paramsId = parseInt(paramsObj.id)
 const [updateRestaurantName, setUpdateRestaurantName] = useState("")
@@ -105,7 +106,32 @@ useEffect(() => {
 
             })
         })
-        
+        const calendarData = {
+          summary: matchRestaurantName?.restaurant_name,
+          timezone: restaurantTimezone,
+          startime: new Date(restaurantStart),
+          endtime: new Date(restaurantEnd),
+          user_id: user.id,
+        }
+      
+      fetch(`/calendars`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(calendarData)
+      })
+      .then((res) => {
+        if (res.ok) {
+          res.json().then((userData) => {
+            setCalendarDetail(userData)
+            // setUpdated(updated => !updated)
+            // history.push("/myBookmarks")
+          });
+        } else {
+          res.json().then((err) => setErrors(err.errors))
+        }
+      })   
     }
     const editCalendarEvent = updated ? '' : 'hidden';
 // console.log((new Date(new Date().toString().split('GMT')[0]+' UTC').toISOString().split('.')[0]))

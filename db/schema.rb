@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_22_193540) do
+ActiveRecord::Schema.define(version: 2022_12_08_165521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 2022_11_22_193540) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["restaurant_id"], name: "index_bookmarks_on_restaurant_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "calendars", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "summary"
+    t.string "timezone"
+    t.string "startime"
+    t.string "endtime"
+    t.index ["user_id"], name: "index_calendars_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -46,5 +55,6 @@ ActiveRecord::Schema.define(version: 2022_11_22_193540) do
 
   add_foreign_key "bookmarks", "restaurants"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "calendars", "users"
   add_foreign_key "restaurants", "users"
 end
