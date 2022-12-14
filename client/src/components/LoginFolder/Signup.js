@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-const Signup = ({ setUser }) => {
+const Signup = ({ setUser, getUserCoordinates }) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([])
@@ -20,6 +20,7 @@ const Signup = ({ setUser }) => {
             if (res.ok) {
                 res.json().then((userSignup) => {
                     setUser(userSignup)
+                    getUserCoordinates()
                     history.push('/')
                 });
             } else {

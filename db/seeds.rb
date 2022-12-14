@@ -7,4 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 cindy = User.create(username: 'Cindy', password: "12345")
+demoUser = User.create(username: 'Demo', password: "12345")
 puts "✅ Done seeding!"

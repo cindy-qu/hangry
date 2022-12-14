@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, getUserCoordinates }) => {
+
+    
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([])
@@ -21,6 +23,7 @@ const Login = ({ setUser }) => {
             if (res.ok) {
                 res.json().then((userLogin) => {
                     setUser(userLogin)
+                    getUserCoordinates()
                     history.push('/')
                 })
             } else {
@@ -45,7 +48,7 @@ const Login = ({ setUser }) => {
                         
                     </div>
                     <div className="form-floating mb-3">
-                     <input className="form-control" id="floatingInput" placeholder="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                     <input autoComplete="off" className="form-control" id="floatingInput" placeholder="username" type="text" value={username} onChange={(e) => setUsername(e.target.value)}/>
                      <label htmlFor="floatingInput">Username</label>
                     </div>
                     <div className="form-floating mb-3">

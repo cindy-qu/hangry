@@ -99,6 +99,7 @@ html body{
   margin-top: 3rem;
   margin-right: 2rem;
   background-color: #365ca3;
+  border-color: transparent;
 }
 
 #landing-button:hover{
@@ -317,6 +318,12 @@ html body{
   }
 }
 
+.demo-header{
+  padding-top: 5rem;
+  font-size: 1rem;
+  width: 30rem;
+}
+
 /* -----Login Modal----- */
 #exampleModal input{
   flex: 0 0 200px;
@@ -416,6 +423,23 @@ html body{
 
 /* -----Search----- */
 
+#search-button:hover {
+  background-color: #29467c;
+}
+
+#search-button {
+  background-color: #365ca3;
+  border-color: transparent;
+}
+
+#adventurous-button:hover {
+  background-color: #29467c;
+}
+
+#adventurous-button {
+  background-color: #365ca3;
+  border-color: transparent;
+}
 
 .search-container #searchinput{
   width: 40%;

@@ -41,7 +41,7 @@ function App() {
         res.json().then((userData) => {
           setUser(userData)
           fetchRestaurantBookmarks();
-          getUserCoordinates()
+          // getUserCoordinates()
         });
       }
     });
@@ -76,7 +76,7 @@ function App() {
     }
     // console.log(lat, long)
 
-  if (!user) return <LoginContainer setUser={setUser} />
+  if (!user) return <LoginContainer getUserCoordinates={getUserCoordinates} setUser={setUser} />
 
   return (
     <div className="App"  >
@@ -101,7 +101,7 @@ function App() {
 
 
         <Route exact path="/myBookmarks">
-          <MyBookmarks restaurantBookmarks={restaurantBookmarks} user={user} setUpdateAfterDelete={setUpdateAfterDelete}/>
+          <MyBookmarks setUpdateAfterBookmark={setUpdateAfterBookmark} restaurantBookmarks={restaurantBookmarks} user={user} setUpdateAfterDelete={setUpdateAfterDelete}/>
         </Route>
 
         <Route exact path="/myBookmarks/:id">

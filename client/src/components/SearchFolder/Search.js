@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { autoCompleteData } from "./data.js";
 
 const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => {
+  
     // search state
     
     const [price, setPrice] = useState("1")
@@ -147,9 +148,7 @@ const Search = ( { yelp, lat, long, updateRestaurant, setUpdateRestaurant }) => 
         function generateRandomRestaurant(min = 1, max = 5) {
             return (Math.floor(Math.random() * (max - min)) + min).toString()
         }
-        // console.log(updateRestaurant)
-        // console.log(restaurantArray.length)
-        // console.log(restaurantArray[generateRandomPrice()])
+
         if (restaurantArray.length > 0) {
           history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
         } else {
@@ -199,26 +198,21 @@ history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
 
 }
   return (
+    
     <div className="card-background">
+         
     <div className="card" id="search-card">
+    <div className="alert alert-info alert-dismissible fade show">
+          <i className="fa-solid fa-circle-info"></i>
+        <strong>Info!</strong> Please remember to temporarily enable <a target="_blank" rel="noopener noreferrer" href="https://cors-anywhere.herokuapp.com/corsdemo" className="alert-link">CORS Anywhere</a> when you first login!
+        <button type="button" className="btn-close" data-bs-dismiss="alert"></button>
+    </div>
     <div className="search-container" data-backdrop="false">
       <br></br>
       <p>Get a restaurant based on price range and category!</p>
         <form className="search-bar">
 
-            {/* <select id="select_location" value={location} onChange={handleLocation} > 
-                <option value="hi">Your Current Location</option>
-                <option value={[40.730610, -73.935242]}>NYC</option>
-                <option value="la">LA</option>
-                <option value="sf">SF</option>
-            </select> */}
 
-            {/* <select id="select_category" value={category} onChange={handleCategory} > 
-                <option value="italian">Italian</option>
-                <option value="chinese">Chinese</option>
-                <option value="mexican">Mexican</option>
-                <option value="brunch">Brunch</option>
-            </select> */}
 
             <select className="form-select" id="select_price"  value={price} onChange={handlePrice}> 
                 <option value="1">$</option>
@@ -239,13 +233,13 @@ history.push(`/restaurants/${restaurantArray[generateRandomRestaurant()]?.id}`)
             />
             {suggestionsActive && <Suggestions />}
 
-            <button className='btn btn-primary' onClick={handleClick}>Search</button>
+            <button className='btn btn-primary' onClick={handleClick} id="search-button">Search</button>
 
 
         </form>
         <br></br>
         <p>Get a restaurant only based on your location!</p>
-        <button className='btn btn-primary' onClick={handleAdventureClick}>Feeling Adventurous</button>
+        <button className='btn btn-primary' onClick={handleAdventureClick} id="adventurous-button">Feeling Adventurous</button>
     </div>
     </div>
     </div>

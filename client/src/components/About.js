@@ -15,6 +15,8 @@ const About = () => {
       <h3>Resources</h3>
       <p><a href="https://www.freepik.com/author/pch-vector">Images by pch.vector</a> on Freepik</p>
       <p><a href="https://docs.developer.yelp.com/docs/getting-started">Yelp Fusion API</a></p>
+      <p><a href="https://developers.google.com/calendar/api">Google Calendar API</a></p>
+      <p><a href="https://www.w3schools.com/html/html5_geolocation.asp">HTML Geolocation API</a></p>
 
       </div>
     </div>

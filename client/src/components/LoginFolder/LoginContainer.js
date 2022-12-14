@@ -1,13 +1,36 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React, { useState } from "react"
+import { Link, useHistory } from "react-router-dom"
 import Login from "./Login"
 import Signup from "./Signup"
 
-const LoginContainer = ({ setUser }) => {
-
+const LoginContainer = ({ setUser, getUserCoordinates }) => {
+    const [errors, setErrors] = useState([])
+    const history = useHistory()
     // const [showLogin, setShowLogin] = useState(true);
-
- 
+ // submitting demo login
+ function handleDemoSubmit(e) {
+    e.preventDefault()
+    fetch("/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username: 'Demo', password: '12345' }),
+    }).then((res) => {
+        if (res.ok) {
+            res.json().then((userLogin) => {
+                setUser(userLogin)
+                getUserCoordinates()
+                history.push('/')
+            })
+        } else {
+            res.json().then((err) => setErrors(err.errors))
+        }
+    });
+}
+const formErrorMsg = errors.map((err) => (
+    <li key={err}>{err}</li>
+))
   return (
     <div className="login-container">
         <div className="landing-page">
@@ -40,13 +63,17 @@ const LoginContainer = ({ setUser }) => {
             </Link>
             <div>
                 <div className="loginsignup">
-                    <Login setUser={setUser}/>
+                    <Login getUserCoordinates={getUserCoordinates} setUser={setUser}/>
                 </div>
             </div>
             <div>
                 <div className="loginsignup">
-                    <Signup setUser={setUser}/>
+                    <Signup getUserCoordinates={getUserCoordinates} setUser={setUser}/>
                 </div>
+                <h4 className="demo-header">Don't want to sign up? Click demo to test out the application without creating an account!</h4>
+                <button onClick={handleDemoSubmit} className="btn btn-primary btn-sm" >Demo</button>
+                <ul>{formErrorMsg}</ul>
+                
             </div>
         </div>
 
