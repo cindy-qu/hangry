@@ -18,7 +18,7 @@ const NavBar = ( {user, setUser }) => {
   return (
     <div className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <span className="navbar-brand mb-0 h1">Hangry</span>
+        <span className="navbar-brand mb-0 h1" id="hangrybrand">Hangry</span>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
         </button>

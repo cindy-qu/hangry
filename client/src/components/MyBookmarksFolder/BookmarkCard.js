@@ -16,8 +16,8 @@ const BookmarkCard = ({yelp_url, restaurant_image, note_id, user_id, bookmark_id
   // const showAddButton = personal_note?.personal_note.length > 0 ? "hidden" : "" 
   // const showEditButton = personal_note?.personal_note.length > 0 ? "" : "hidden" 
 const apostId = restaurant_name.split(" ").join("")
-
-  const idhover = apostId.replace("'","A");
+const andhover = apostId.replace("&","A");
+  const idhover = andhover.replace("'","A");
 const newidhover = `#${idhover}`
 
   const linkAddEdit = personal_note?.personal_note.length > 0 ? `myBookmarks/${note_id}` : `addNote/${bookmark_id}`

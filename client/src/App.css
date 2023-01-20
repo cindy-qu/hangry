@@ -418,7 +418,12 @@ html body{
 }
 
 .navbar {
-  padding: 20px 50px; 
+  padding: 20px 20px; 
+}
+
+#hangrybrand {
+  font-weight: 700;
+  color: #365ca3;
 }
 
 /* -----Search----- */
@@ -489,14 +494,53 @@ html body{
 }
 
 /* -----RestaurantDetail----- */
-
-.restaurant-detail #restaurant-image{
-  border-radius: 45px;
-  margin: 15px 0px;
-  width: 30vw;
-  max-width: 400px;
-  max-height: 400px;
+#buttonbookmark {
+  margin: 3% auto;
 }
+#restdetail {
+  padding: 0px 50px;
+  margin: 3% auto;
+  width: 60vw;
+  max-width: 900px;
+  background-color: white;
+
+}
+.location-detail {
+  margin-bottom: 0px;
+}
+.restaurant-detail #restaurant-image{
+  border-radius: 25px;
+  margin: 15px 31%;
+  width: 30vw;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.yelp-detail {
+  margin-left: 0px;
+}
+
+.yelp-detail li{
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.restaurant-detail h2 {
+  margin-top: 1rem;
+}
+
+
+.restaurant-detail{
+  background-image: url("./ImagesFolder/restaurantimg.jpg");
+  height: 83vh; 
+  background-position: top 30% left 1%;
+  background-repeat: no-repeat;
+  background-size: 140rem;
+
+  
+}
+
+
 /* -----TryAgain----- */
 .tryagain{
   background-image: url("./ImagesFolder/tryagain.jpg");
@@ -661,6 +705,10 @@ height: 20px
   max-width: 900px;
   background-color: white;
 
+}
+
+#linkedin {
+  font-size: 40px
 }
 /* .openModalBtn {
   width: 200px;

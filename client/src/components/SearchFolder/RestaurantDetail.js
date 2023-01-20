@@ -33,7 +33,7 @@ const RestaurantDetail = ( { yelp, user, setUpdateAfterBookmark } ) => {
 
 
 const locationMap = locationAddress?.map((address) => {
-  return (<p key={address}>{address}</p>)
+  return (<p className="location-detail" key={address}>{address}</p>)
 })
 
 
@@ -80,22 +80,24 @@ const formErrorMsg = errors?.map((err) => (
 
   return (
     <div className= "restaurant-detail">
+      <div className="card" id="restdetail">
       <h2>{restaurantDetail?.name}</h2>
       <img id="restaurant-image" src={restaurantDetail?.image_url} alt={restaurantDetail?.name}/>
-      <ul>Yelp Rating: <img id="yelp-rating" src={`/images/small_${newnumber}.png`} alt={restaurantDetail?.rating}></img></ul>
+      <div className="yelp-detail">
+      
+      <li  >Yelp Rating: <img id="yelp-rating" src={`/images/small_${newnumber}.png`} alt={restaurantDetail?.rating}></img></li>
 
       
       
-      <ul>Price Range: {restaurantDetail?.price}</ul>
-      <ul>Address: {locationMap}</ul>
+      <li>Price Range: {restaurantDetail?.price}</li>
+      <li>Address: {locationMap}</li>
+      </div>
       <a href={restaurantDetail?.url} target="_blank" rel="noreferrer">
-        <button className="btn btn-danger">Yelp Page</button>
+        <button id="buttonyelp" className="btn btn-danger">Yelp Page</button>
       </a>
-      <br />
-      <br />
-      
-      <br />
-      <button onClick={handleBookmark} className="btn btn-primary">Bookmark for Later</button>
+ 
+
+      <button onClick={handleBookmark} className="btn btn-primary" id = "buttonbookmark" >Bookmark for Later</button>
       <ul>{formErrorMsg}</ul>
       <div id="edit-complete-msg" className={editMsgClassName}>
                 <h3>Bookmarked!</h3>
@@ -103,6 +105,7 @@ const formErrorMsg = errors?.map((err) => (
                   <button className="btn btn-primary">View My Bookmarks
                   </button>
                 </Link>
+        </div>
         </div>
     </div>
 
