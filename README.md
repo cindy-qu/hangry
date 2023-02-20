@@ -1,5 +1,7 @@
-# Project Template: React/Rails API
+# About Hangry
+Deployed Site: https://hangry-r164.onrender.com/
 
+Welcome to Hangry! Can't decide where to eat? Let Hangry pick a restaurant for you! Create an account or log in upon opening the app. Search by price range and category or choose "Feeling Adventurous" and Hangry will choose a restaurant based only on your location. Bookmark any restaurants that interest you. View all your bookmarks and add notes or create a Google calendar event!
 ## Description
 
 This project is scaffolded so that you can build a React frontend and Rails
